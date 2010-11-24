@@ -1,4 +1,4 @@
-[gravatar][g] Ivo Jimenez
+![gravatar][g] Ivo Jimenez
 ===========
 
 PhD Student at the [UCSC][uc] [Computer Science Department][cs]. Member of the [DBGroup][db], 
