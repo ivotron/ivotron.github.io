@@ -3,11 +3,12 @@
 Ivo Jimenez
 ========================
 
+------------------------
+
 PhD Student at the [UCSC][uc] [Computer Science Department][cs].
 
-Member of the [DBGroup][db], advised by Profesor Neoklis ([Alkis][al]) Polyzotis.
+Member of the [DBGroup][db]. Advised by Profesor Neoklis ([Alkis][al]) Polyzotis.
 
-<br>
 <br>
 
 <ivo@cs.ucsc.edu> | [publications][p] | [resume][r] | [linkedin][l]
