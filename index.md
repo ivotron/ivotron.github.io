@@ -17,7 +17,7 @@ Member of the [DBGroup][db]. Advised by Profesor Neoklis ([Alkis][a]) Polyzotis.
 
 <br>
 
-[e-mail][e] | [blog][b] | [publications][p] | [resume][r] | [linkedin][l] | [lanyrd][y] | [web][w]
+[e-mail][e] | [blog][b] | [publications][p] | [resume][r] | [linkedin][l] | [lanyrd][y] | [web-presence][w]
 
 [uc]: http://ucsc.edu
 [cs]: http://cs.ucsc.edu
