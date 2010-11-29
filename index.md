@@ -17,7 +17,7 @@ Member of the [DBGroup][db]. Advised by Profesor Neoklis ([Alkis][al]) Polyzotis
 
 <br>
 
-[e-mail][e] | [blog][b] | [publications][p] | [resume][r] | [linkedin][l]
+[e-mail][e] | [blog][b] | [publications][p] | [resume][r] | [linkedin][l] | [web-profile][g]
 
 [uc]: http://ucsc.edu
 [cs]: http://cs.ucsc.edu
@@ -28,3 +28,4 @@ Member of the [DBGroup][db]. Advised by Profesor Neoklis ([Alkis][al]) Polyzotis
 [p]:  http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/j/Jimenez:Ivo.html
 [r]:  /cv.pdf
 [l]:  http://www.linkedin.com/in/ivotron
+[g]:  http://www.google.com/profiles/IvoJimenez
