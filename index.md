@@ -13,19 +13,20 @@ Ivo Jimenez
 
 PhD Student at the [UCSC][uc] [Computer Science Department][cs].
 
-Member of the [DBGroup][db]. Advised by Profesor Neoklis ([Alkis][al]) Polyzotis.
+Member of the [DBGroup][db]. Advised by Profesor Neoklis ([Alkis][a]) Polyzotis.
 
 <br>
 
-[e-mail][e] | [blog][b] | [publications][p] | [resume][r] | [linkedin][l] | [web-profile][g]
+[e-mail][e] | [blog][b] | [publications][p] | [resume][r] | [linkedin][l] | [lanyrd][y] | [web][w]
 
 [uc]: http://ucsc.edu
 [cs]: http://cs.ucsc.edu
 [db]: http://db.cs.ucsc.edu
-[al]: http://cs.ucsc.edu/~alkis
+[a]:  http://cs.ucsc.edu/~alkis
 [e]:  mailto:ivo@cs.ucsc.edu
 [b]:  /blog_index.html
 [p]:  http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/j/Jimenez:Ivo.html
 [r]:  /cv.pdf
 [l]:  http://www.linkedin.com/in/ivotron
-[g]:  http://www.google.com/profiles/IvoJimenez
+[y]:  http://lanyrd.com/people/ivotron/
+[w]:  http://www.google.com/profiles/IvoJimenez
