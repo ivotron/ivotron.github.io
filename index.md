@@ -23,7 +23,7 @@ Member of the [DBGroup][db]. Advised by Profesor Neoklis ([Alkis][al]) Polyzotis
 [cs]: http://cs.ucsc.edu
 [db]: http://db.cs.ucsc.edu
 [al]: http://cs.ucsc.edu/~alkis
-[e]:  ivo@cs.ucsc.edu
+[e]:  mailto:ivo@cs.ucsc.edu
 [b]:  /blog_index.html
 [p]:  http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/j/Jimenez:Ivo.html
 [r]:  /cv.pdf
