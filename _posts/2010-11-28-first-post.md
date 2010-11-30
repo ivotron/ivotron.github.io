@@ -1,4 +1,10 @@
-# And now, for something completely different...
+---
+layout: post
+title: And now, for something completely different...
+---
+
+{{ page.title }}
+================
 
 So now I'm [bloggin like a hacker][b]. As of today, the blog looks ugly, but I'll try to find some 
 nice [CSS][c] designs to spice it up (hopefully, in a not so distant future).

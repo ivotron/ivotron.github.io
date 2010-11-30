@@ -1,10 +1,9 @@
-<img
-   src="http://db.cs.ucsc.edu/sites/default/files/ivo.jpg"
-   width="10%"
-   alt="Me!"
-   hspace="30"
-   align="left"
-/>
+---
+layout: main
+title: Ivo Jimenez
+---
+
+<img src="http://db.cs.ucsc.edu/sites/default/files/ivo.jpg" class="mypic">
 
 Ivo Jimenez
 ========================
@@ -22,6 +21,7 @@ Member of the [DBGroup][db]. Advised by Profesor Neoklis ([Alkis][a]) Polyzotis.
 [uc]: http://ucsc.edu
 [cs]: http://cs.ucsc.edu
 [db]: http://db.cs.ucsc.edu
+[i]:  http://db.cs.ucsc.edu/sites/default/files/ivo.jpg
 [a]:  http://cs.ucsc.edu/~alkis
 [e]:  mailto:ivo@cs.ucsc.edu
 [b]:  /blog_index.html

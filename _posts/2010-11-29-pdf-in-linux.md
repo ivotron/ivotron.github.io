@@ -1,5 +1,10 @@
-PDF Annotations in Linux
-========================
+---
+layout: post
+title: PDF Annotations in Linux
+---
+
+{{ page.title }}
+================
 
 Today I found that a (relatively) new [effort](http://www.gnupdf.org) that will make PDF annotation 
 in Linux a reality, which is really cool given the fact that we're almost in the year 2011 and, 
