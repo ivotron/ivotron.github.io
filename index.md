@@ -6,7 +6,7 @@ title: Ivo Jimenez
 <img src="http://db.cs.ucsc.edu/sites/default/files/ivo.jpg" class="mypic">
 
 Ivo Jimenez
-========================
+===========
 
 ------------------------
 
