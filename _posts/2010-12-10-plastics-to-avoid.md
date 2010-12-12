@@ -6,6 +6,25 @@ title: Plastic Identification Numbers to Avoid
 {{ page.title }}
 ================
 
+<div>
+   <a href='http://www.flickr.com/photos/mason13a/3265411170/' target='_blank'>
+      <img src='http://farm4.static.flickr.com/3488/3265411170_e355c8020c_m.jpg'
+           alt='Klean Kanteen by mason13a, on Flickr'
+           title='Klean Kanteen by mason13a, on Flickr'
+           border='0'/>
+   </a>
+   <br/>
+   <a href='http://creativecommons.org/licenses/by-nc-nd/2.0/' target='_blank'>
+      <img src='http://i.creativecommons.org/l/by-nc-nd/2.0/80x15.png'
+           alt='Creative Commons Attribution-Noncommercial-No Derivative Works 2.0 Generic License' 
+           title='Creative Commons Attribution-Noncommercial-No Derivative Works 2.0 Generic License'
+           border='0'
+           align='left'>
+   </a>&nbsp;&nbsp;by&nbsp;
+   <a href='http://www.flickr.com/people/mason13a/' target='_blank'>&nbsp;mason13a</a>
+   <a href='http://www.imagecodr.org/' target='_blank'>&nbsp;</a>
+</div>
+
 So the quarter is over and from the many things I learned (besides the academic topics) is the 
 following about plastic bottles. In short, the plastc [IDs][w] to avoid are: 1, 3, 6 and 7. As 
 mentioned [here][b] the other numbers aren't guaranteed to be safe, it's just that they haven't been 
