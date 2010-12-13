@@ -45,7 +45,7 @@ a:hover {
 
 /* Content */
 
-#content #disqus_thread {
+#content {
     float: center;
     width: 860px;
 }
@@ -87,6 +87,13 @@ a:hover {
 #post .tags {
     padding-top: 10px;
     border-top: 1px dashed #D9EBFF;
+}
+
+/* Disqus */
+
+#disqus_thread {
+    float: center;
+    width: 860px;
 }
 
 /* Footer */
