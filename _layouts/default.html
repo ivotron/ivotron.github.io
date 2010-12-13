@@ -9,29 +9,40 @@
 
     </head>
     <body>
-
-        <div class="site">
-
-            <div id="content">
-                {{ content }}
-            </div>	
-
-            <div class="footer">
-                <div class="contact">
-                    <p>
-                    <a href="http://cs.ucsc.edu/~ivo/">home</a><br />
-                    </p>
-                </div>
-                <div class="rss">
-                    <a href="http://feeds.feedburner.com/ivotron">
-                        <img src="/images/rss.gif" alt="Subscribe to RSS Feed" />
-                    </a>
-                </div>
-            </div>
-
+        <div id="content">
+            {{ content }}
         </div>
 
-    </div>
+        {% if page.comments %}
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'ucscblog';
+            var disqus_identifier = 'ucscblog_id_{{ page.date | date:"%Y_%m_%d"}}';
+
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        {% endif %}
+
+        <div class="footer">
+            <div class="contact">
+                <p>
+                <a href="http://cs.ucsc.edu/~ivo/">home</a><br />
+                </p>
+            </div>
+            <div class="rss">
+                <a href="http://feeds.feedburner.com/ivotron">
+                    <img src="/images/rss.gif" alt="Subscribe to RSS Feed" />
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
