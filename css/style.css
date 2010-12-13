@@ -45,7 +45,7 @@ a:hover {
 
 /* Content */
 
-#content {
+#content #disqus_thread {
     float: center;
     width: 860px;
 }
