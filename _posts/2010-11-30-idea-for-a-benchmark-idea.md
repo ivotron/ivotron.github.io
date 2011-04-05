@@ -70,7 +70,8 @@ like this would be composed of the following modules:
 
 5. **Query execution**.
 
-   Concurrency levels. Metrics (throughput, response time, etc)
+   Concurrency levels. Metrics (throughput, response time, etc). [Grinder][g] may be leveraged for 
+   concurrency control.
 
 6. **Report generation**.
 
@@ -87,8 +88,14 @@ I'm planning to add more info to this proposal later, when I find more time to d
 **Update 12/13/10**: Added architecture description; put more details on 3 and 4. To do: include 
 more details for 5 and 6
 
+**Update 01/12/10**: Grinder pointer added
+
+**Update 04/04/11**: Had an idea: this tool could be potentially be leverage [SQLAlchemy][s].
+
 [c]: http://www.soe.ucsc.edu/classes/cmps278/Fall10
 [r]: http://users.soe.ucsc.edu/~rekhap
 [b]: http://wiki.oracle.com/page/Database+Benchmarking
 [l]: http://benchmarksql.sourceforge.net
 [t]: http://www.tpc.org
+[g]: http://grinder.sourceforge.net
+[s]: http://sqlalchemy.org
