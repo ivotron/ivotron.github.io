@@ -11,11 +11,14 @@ Ivo Jimenez
 ------------------------
 
 I'm a 2nd year PhD student at the [UCSC][uc] [Computer Science Department][cs]. I'm a member of the 
-[Database Group][db], advised by Professor [Neoklis (Alkis) Polyzotis][a]. Currently, I'm working on 
-the [DBTune][dbtune] project, investigating autonomous database physical design techniques.
+[Database Group][db], advised by Professor [Neoklis (Alkis) Polyzotis][a]. Currently, I'm a 
+collaborator of the [DBTune][dbtune] project, investigating autonomous database physical design 
+techniques.
 
 [Publications][p]  
 [Resume][r]
+
+------------------------
 
 [e-mail][e] | [blog][b] | [linkedin][l] | [lanyrd][y] | [web-presence][w]
 
