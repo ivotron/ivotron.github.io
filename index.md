@@ -10,14 +10,16 @@ Ivo Jimenez
 
 ------------------------
 
-PhD Student at the [UCSC][uc] [Computer Science Department][cs].
+I'm a 2nd year PhD student at the [UCSC][uc] [Computer Science Department][cs]. I'm a member of the 
+[Database Group][db], advised by Professor [Neoklis (Alkis) Polyzotis][a]. Currently, I'm working on 
+the [DBTune][dbtune] project, investigating autonomous database physical design techniques.
 
-Member of the [DBGroup][db]. Advised by Profesor Neoklis ([Alkis][a]) Polyzotis.
+[Publications][p]  
+[Resume][r]
 
-<br>
+[e-mail][e] | [blog][b] | [linkedin][l] | [lanyrd][y] | [web-presence][w]
 
-[e-mail][e] | [blog][b] | [publications][p] | [resume][r] | [linkedin][l] | [lanyrd][y] | [web-presence][w]
-
+[dbtune]: http://db.cs.ucsc.edu/indextuning
 [uc]: http://ucsc.edu
 [cs]: http://cs.ucsc.edu
 [db]: http://db.cs.ucsc.edu
@@ -26,7 +28,7 @@ Member of the [DBGroup][db]. Advised by Profesor Neoklis ([Alkis][a]) Polyzotis.
 [e]:  mailto:ivo@cs.ucsc.edu
 [b]:  /blog_index.html
 [p]:  http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/j/Jimenez:Ivo.html
-[r]:  /cv.pdf
+[r]:  /resume.pdf
 [l]:  http://www.linkedin.com/in/ivotron
 [y]:  http://lanyrd.com/people/ivotron/
-[w]:  http://www.google.com/profiles/IvoJimenez
+[w]:  https://plus.google.com/105360754243680517376/about
