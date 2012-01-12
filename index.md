@@ -30,7 +30,7 @@ techniques.
 [a]:  http://cs.ucsc.edu/~alkis
 [e]:  mailto:ivo@cs.ucsc.edu
 [b]:  /blog_index.html
-[p]:  http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/j/Jimenez:Ivo.html
+[p]:  http://scholar.google.com/citations?user=_f4sYhoAAAAJ
 [r]:  /resume.pdf
 [l]:  http://www.linkedin.com/in/ivotron
 [y]:  http://lanyrd.com/people/ivotron/
