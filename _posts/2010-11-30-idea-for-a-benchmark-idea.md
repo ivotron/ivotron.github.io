@@ -85,12 +85,14 @@ Assumptions about this hypothetic library:
 
 I'm planning to add more info to this proposal later, when I find more time to do so.
 
-**Update 12/13/10**: Added architecture description; put more details on 3 and 4. To do: include 
+**Update 2010/12/01**: Grinder pointer added
+
+**Update 2010/12/13**: Added architecture description; put more details on 3 and 4. To do: include 
 more details for 5 and 6
 
-**Update 01/12/10**: Grinder pointer added
+**Update 2011/04/04**: Had an idea: this tool could be potentially be leverage [SQLAlchemy][s].
 
-**Update 04/04/11**: Had an idea: this tool could be potentially be leverage [SQLAlchemy][s].
+**Update 2012/06/20**: Take a look at [OLTPBench][o]!
 
 [c]: http://www.soe.ucsc.edu/classes/cmps278/Fall10
 [r]: http://users.soe.ucsc.edu/~rekhap
@@ -99,3 +101,4 @@ more details for 5 and 6
 [t]: http://www.tpc.org
 [g]: http://grinder.sourceforge.net
 [s]: http://sqlalchemy.org
+[o]: http://oltpbenchmark.com
