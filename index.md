@@ -10,24 +10,24 @@ Ivo Jimenez
 
 ------------------------
 
-I'm a 2nd year PhD student at the [UCSC][uc] [Computer Science Department][cs]. I'm a member of the 
-[Database Group][db], advised by Professor [Neoklis (Alkis) Polyzotis][a]. Currently, I'm a 
-collaborator of the [DBTune][dbtune] project, investigating autonomous database physical design 
-techniques.
+I'm a 3rd year PhD student at the [UCSC][uc] [Computer Science Department][cs]. I'm a member of the 
+[Systems Research Lab][srl], advised by Professor [Carlos Maltzahn][a]. Currently, I'm a 
+collaborator of the [DAMASC][damasc] project, investigating ways of fusing data management services 
+with file systems.
 
-[Publications][p]  
+[Publications][p]
 [Resume][r]
 
 ------------------------
 
 [e-mail][e] | [blog][b] | [linkedin][l] | [lanyrd][y] | [web-presence][w]
 
-[dbtune]: http://db.cs.ucsc.edu/indextuning
+[damasc]: http://systems.soe.ucsc.edu/projects/damasc
 [uc]: http://ucsc.edu
 [cs]: http://cs.ucsc.edu
 [db]: http://db.cs.ucsc.edu
 [i]:  http://db.cs.ucsc.edu/sites/default/files/ivo.jpg
-[a]:  http://cs.ucsc.edu/~alkis
+[c]:  http://cs.ucsc.edu/~carlosm
 [e]:  mailto:ivo@cs.ucsc.edu
 [b]:  /blog_index.html
 [p]:  http://scholar.google.com/citations?user=_f4sYhoAAAAJ
