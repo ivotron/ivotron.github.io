@@ -13,7 +13,8 @@ March/2013; version 0.6). They are intended to be applied on Ubuntu 12.04 LTS.
 
 ```bash
 sudo aptitude install \
-     git build-essential automake libtool flex bison \
+     build-essential automake libtool flex bison \
+     git subversion \
      libboost-test-dev libboost-program-options-dev libboost-filesystem-dev libboost-system-dev \
      libboost-regex-dev libboost-thread-dev \
      protobuf-compiler \
