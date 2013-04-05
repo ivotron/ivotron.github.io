@@ -1,3 +1,4 @@
 url: "http://ivotron.github.com/"
 permalink: pretty
 pygments: true
+markdown: redcarpet
