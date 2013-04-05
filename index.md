@@ -23,9 +23,9 @@ with file systems.
 [uc]: http://ucsc.edu
 [cs]: http://cs.ucsc.edu
 [srl]: http://systems.soe.ucsc.edu
-[c]: http://cs.ucsc.edu/~carlosm
+[c]: http://users.soe.ucsc.edu/~carlosm/
 [e]: mailto:ivo@cs.ucsc.edu
-[b]: /blog_index.html
+[b]: /blog_index
 [p]: http://scholar.google.com/citations?user=_f4sYhoAAAAJ
 [l]: http://www.linkedin.com/in/ivotron
 [y]: http://lanyrd.com/people/ivotron/
