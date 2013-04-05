@@ -5,6 +5,7 @@
         <title>{{ page.title }} : Ivo's blog</title>
         <meta name="author" content="Ivo Jimenez" />
 
+        <link rel="stylesheet" href="/css/pygments.css" type="text/css" />
         <link rel="stylesheet" href="/css/style.css" type="text/css" />
 
     </head>
@@ -33,13 +34,19 @@
 
         <div class="footer">
             <div class="contact">
+
+                {% if page.backtoindexlink %}
                 <p>
-                    <a href="http://cs.ucsc.edu/~ivo/blog_index.html">back to index</a><br />
+                    <a href="{{ site.url }}/blog_index">back to index</a><br />
                 </p>
+                {% endif %}
+
                 <p>
-                    <a href="http://cs.ucsc.edu/~ivo/">back to home</a><br />
+                    <a href="{{ site.url }}">back to home</a><br />
                 </p>
             </div>
+
+
             <div class="rss">
                 <a href="http://feeds.feedburner.com/ivotron">
                     <img src="/images/rss.gif" alt="Subscribe to RSS Feed" />
