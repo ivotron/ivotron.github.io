@@ -1,6 +1,7 @@
 ---
 layout: post
 title: And now, for something completely different...
+category: blog
 ---
 
 {{ page.title }}

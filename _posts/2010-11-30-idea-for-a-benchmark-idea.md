@@ -1,5 +1,6 @@
 ---
 layout: post
+category: blog
 title: Idea for a General Purpose RDBMS Benchmarking Library
 ---
 

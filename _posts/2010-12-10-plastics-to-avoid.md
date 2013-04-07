@@ -1,5 +1,6 @@
 ---
 layout: post
+category: blog
 title: Plastic Identification Numbers to Avoid
 ---
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+category: blog
 title: Using Lanyrd for Academic Conferences
 ---
 

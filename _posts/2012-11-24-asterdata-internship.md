@@ -1,5 +1,6 @@
 ---
 layout: post
+category: blog
 title: Teradata Aster Summer Internship
 ---
 
