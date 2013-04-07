@@ -5,34 +5,36 @@ Released for free under a Creative Commons Attribution 2.5 License
  */
 
 * {
-    margin: 20;
-    padding: 20;
+  margin: 20;
+  padding: 20;
 }
 
 body {
-    text-align: justify;
-    font-size: 16px;
-    color: #8A7F7F;
-    background: #F2F0E4;
-    font: 15px Verdana, Helvetica, sans-serif;
-    margin: auto auto auto 35px;
+  text-align: justify;
+  font-size: 16px;
+  color: #8A7F7F;
+  background: #F2F0E4;
+  font: 15px Verdana, Helvetica, sans-serif;
+  margin: auto auto auto 35px;
 }
 
 h1, h2, h3 {
-    margin-bottom: 1em;
-    /*text-transform: lowercase;*/
-    font-weight: normal;
-    color: #004184;
+  margin-bottom: 1em;
+  /*text-transform: lowercase;*/
+  font-weight: normal;
+  color: #004184;
 }
 
 /* nice rounded code boxes */
-.highlight {
+.sourceCode {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  padding: 20px;
+  padding-left: 20px;
+/*
   overflow: auto;
   font-size: 14px;
+*/
   margin: 20px 0 20px 0;
 }
 
@@ -44,33 +46,33 @@ code {
   border-radius: 4px;
   margin: 1px auto auto 1px;
 }
-/* but exclude the box from pygments' <code> elements*/
-.highlight code { border: 0px solid black; }
+/* but exclude the box from pygments' <code> elements */
+.sourceCode code { border: 0px solid black; }
 
 h1 a, h2 a, h3 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 h1 a:hover, h2 a:hover, h3 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 a {
-    text-decoration: none;
-    color: #D6990B;
+  text-decoration: none;
+  color: #D6990B;
 }
 
 a:hover {
-    background: #308ABE;
-    text-decoration: underline;
-    color: #D6990B;
+  background: #308ABE;
+  text-decoration: underline;
+  color: #D6990B;
 }
 
 /* Content */
 
 #content {
-    float: center;
-    width: 920px;
+  float: center;
+  width: 860px;
 }
 
 #content .bgtop {
@@ -83,62 +85,80 @@ a:hover {
 }
 
 #post .title {
-    margin: 0;
-    padding: 0 20px;
+  margin: 0;
+  padding: 0 20px;
 }
 
 #post h2 {
 }
 
 #post .meta {
-    margin: 0;
-    padding: 0 20px 20px 20px;
-    line-height: normal;
+  margin: 0;
+  padding: 0 20px 20px 20px;
+  line-height: normal;
 }
 
 #post .entry {
-    padding: 20px;
+  padding: 20px;
 }
 
 #post .tags, .post .links {
-    margin: 0;
-    line-height: normal;
-    font-size: smaller;
-    text-align: center;
+  margin: 0;
+  line-height: normal;
+  font-size: smaller;
+  text-align: center;
 }
 
 #post .tags {
-    padding-top: 10px;
-    border-top: 1px dashed #D9EBFF;
+  padding-top: 10px;
+  border-top: 1px dashed #D9EBFF;
 }
 
 /* Disqus */
 
 #disqus_thread {
-    float: center;
-    width: 920px;
+  float: center;
+  width: 860px;
 }
 
 /* Footer */
 
 #footer {
-    width: 562px;
-    height: 60px;
-    margin: 0 auto;
-    padding: 15px 0;
-    text-align: center;
+  width: 562px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 15px 0;
+  text-align: center;
 }
 
 #footer p {
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
-    line-height: normal;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: normal;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 500px;
+  max-height: 500px;
+  display: -moz-inline-box; /* Firefox 2 */
+  display: inline-block;
+  border: 1px solid black ;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  margin: 1px auto auto 1px;
+}
+
+figcaption {
+  max-width: 500px;
+  text-align: center;
 }
 
 img.mypic {
-    float: left;
-    margin-top: 5px;
-    margin-right: 25px;
-    margin-left: 10px;
+  float: left;
+  margin-top: 5px;
+  margin-right: 25px;
+  margin-left: 10px;
 }
