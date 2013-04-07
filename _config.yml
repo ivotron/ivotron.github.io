@@ -1,4 +1,12 @@
-url: "http://ivotron.github.com/"
+markdown: pandoc
+url: "http://ivotron.me/"
 permalink: pretty
 pygments: true
-markdown: redcarpet
+
+pandoc:
+  extensions:
+    - smart
+    - standalone
+    - csl: '$HOME/.opt/styles/ieee-w-url.csl'
+    - bibliography: '$HOME/.citations/zotero.bib'
+    - highlight-style: 'pygments'
