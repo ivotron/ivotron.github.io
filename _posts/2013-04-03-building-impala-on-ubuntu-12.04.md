@@ -1,6 +1,13 @@
 ---
 layout: post
 title: Building Impala 0.6 on Ubuntu 12.04
+category: blog
+tags:
+  - bigdata
+  - impala
+  - hadoop
+  - ubuntu
+  - cloudera
 ---
 
 # {{ page.title }}
@@ -15,10 +22,11 @@ March/2013; version 0.6). They are intended to be applied on Ubuntu 12.04 LTS.
 sudo aptitude install \
      build-essential automake libtool flex bison \
      git subversion \
+     unzip \
      libboost-test-dev libboost-program-options-dev libboost-filesystem-dev libboost-system-dev \
      libboost-regex-dev libboost-thread-dev \
      protobuf-compiler \
-     libssl-dev \
+     libsasl2-dev \
      libbz2-dev \
      libevent1-dev \
      pkg-config \
@@ -40,6 +48,7 @@ $> svn co http://llvm.org/svn/llvm-project/compiler-rt/tags/RELEASE_32/final/ co
 $> cd ..
 $> ./configure --with-pic --prefix=$HOME/.opt/
 $> make -j4 REQUIRES_RTTI=1
+$> make install
 ```
 
 Add it to `.bashrc`:
@@ -73,16 +82,16 @@ Instead of installing in `/usr/local`, I did in my `.opt/`:
 ```bash
 $> cd $HOME/.opt/
 $> wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz
-$> tar xvfz apach-maven-3.0.4-bin.tar.gz
+$> tar xvfz apache-maven-3.0.4-bin.tar.gz
 $> rm apache-maven-3.0.4-bin.tar.gz
 ```
 
 Then add the following to `.bashrc`:
 
 ```bash
-$> export M2_HOME=$HOME/.opt/apache-maven-3.0.4
-$> export M2=$M2_HOME/bin
-$> export PATH=$M2:$PATH
+export M2_HOME=$HOME/.opt/apache-maven-3.0.4
+export M2=$M2_HOME/bin
+export PATH=$M2:$PATH
 ```
 
 ## Building Impala
