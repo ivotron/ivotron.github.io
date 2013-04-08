@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Blog Index
+title: Lab Notebook Index
 backtoindexlink: false
 ---
 
 <div id="blog">
-  <h1>Blog Posts</h1>
+  <h1>Lab Notebook Posts</h1>
   <ul class="posts">
     {% for post in site.posts %}
-      {% if post.categories contains 'blog' %}
+      {% if post.categories contains 'labnotebook' %}
         <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
       {% endif %}
     {% endfor %}

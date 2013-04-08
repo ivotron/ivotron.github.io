@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# deploy the labnotebook
+if jekyll --pygments --no-future
+  then echo Jekyll Generation successful
+  else exit $?
+fi
+
+if chmod 755 -R _site/*
+  then echo chmod successful
+  else exit $?
+fi
+
+if rsync -arvuz _site/* riverdance.cse.ucsc.edu:public_html/
+  then echo rsync operation successful
+  else exit $?
+fi
+
+exit $?
