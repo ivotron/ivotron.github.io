@@ -17,8 +17,18 @@
 
         <div id="disqus_thread"></div>
         <script type="text/javascript">
-            var disqus_shortname = 'ucscblog';
-            var disqus_identifier = 'ucscblog_id_{{ page.date | date:"%Y_%m_%d"}}';
+
+            {% if page.category == 'blog' %}
+
+              var disqus_shortname = 'labnotebook';
+              var disqus_identifier = 'labnotebook_id_{{ page.date | date:"%Y_%m_%d"}}';
+
+            {% elsif page.category == "contact" %}
+
+              var disqus_shortname = 'ucscblog';
+              var disqus_identifier = 'ucscblog_id_{{ page.date | date:"%Y_%m_%d"}}';
+
+	    {% endif %}
 
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -27,7 +37,7 @@
             })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
         {% endif %}
 
@@ -35,9 +45,15 @@
             <div class="contact">
 
                 {% if page.backtoindexlink %}
+                   {% if page.category == 'blog' %}
                 <p>
                     <a href="{{ site.url }}/blog_index">back to index</a><br />
                 </p>
+                   {% elsif page.category == "contact" %}
+                <p>
+                    <a href="{{ site.url }}/labnotebook_index">back to index</a><br />
+                </p>
+                   {% endif %}
                 {% endif %}
 
                 <p>
