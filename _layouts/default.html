@@ -2,12 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>{{ page.title }} : Ivo's blog</title>
+        <title>{{ page.title }}</title>
         <meta name="author" content="Ivo Jimenez" />
 
-        <link rel="stylesheet" href="/css/pygments.css" type="text/css" />
-        <link rel="stylesheet" href="/css/style.css" type="text/css" />
-
+        <link rel="stylesheet" href="{{ site.url }}/css/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="{{ site.url }}/css/style.css" type="text/css" />
     </head>
     <body>
         <div id="content">
@@ -46,13 +45,21 @@
                 </p>
             </div>
 
-
             <div class="rss">
+
+            {% if page.category == 'blog' %}
                 <a href="http://feeds.feedburner.com/ivotron">
                     <img src="/images/rss.gif" alt="Subscribe to RSS Feed" />
                 </a>
+            {% elsif page.category == "contact" %}
+                <a href="http://feeds.feedburner.com/ivolabnotebook">
+                    <img src="/images/rss.gif" alt="Subscribe to RSS Feed" />
+                </a>
+	    {% endif %}
+
             </div>
         </div>
+
     </div>
 </body>
 </html>

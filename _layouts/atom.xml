@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- 
- <title>Ivo Jimenez</title>
- <link href="{{ site.url }}"/>
- <link href="{{ site.url }}/blog_atom" rel="self"/>
- <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>"{{ site.url }}</id>
- <author>
-   <name>Ivo Jimenez</name>
-   <email>ivo@cs.ucsc.edu</email>
- </author>
-
- {% for post in site.posts %}
-   {% if post.categories contains category %}
- <entry>
-   <title>{{ post.title }}</title>
-   <link href="{{ site.url }}/{{ post.url }}"/>
-   <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>{{ site.url }}{{ post.id }}</id>
-   <content type="html">{{ post.content | xml_escape }}</content>
- </entry>
-   {% endif %}
- {% endfor %}
- 
+  <title>Ivo Jimenez</title>
+  <link href="{{ site.url }}"/>
+  <link href="{{ site.url }}/blog_atom" rel="self"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>"{{ site.url }}</id>
+  <author>
+    <name>Ivo Jimenez</name>
+    <email>ivo@cs.ucsc.edu</email>
+  </author>
+    {% for post in site.posts %}
+      {% if post.categories contains category %}
+        <entry>
+          <title>{{ post.title }}</title>
+          <link href="{{ site.url }}/{{ post.url }}"/>
+          <updated>{{ post.date | date_to_xmlschema }}</updated>
+          <id>{{ site.url }}{{ post.id }}</id>
+          <content type="html">{{ post.content | xml_escape }}</content>
+        </entry>
+      {% endif %}
+    {% endfor %}
 </feed>
 

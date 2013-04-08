@@ -1,5 +1,5 @@
 markdown: pandoc
-url: "http://ivotron.me/"
+url: 'http://ivotron.me/'
 permalink: pretty
 pygments: true
 exclude: ['deploy', 'README.md']

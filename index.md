@@ -1,9 +1,11 @@
 ---
+title: 'Ivo Jimenez : Homepage'
 layout: main
-title: Ivo Jimenez
+footer: false
+comments: false
 ---
 
-<img src="http://db.cs.ucsc.edu/sites/default/files/ivo.jpg" class="mypic">
+<img src="{{ site.url }}/images/ivo.jpg" class="mypic">
 
 [Ivo Jimenez][e]
 ===========
@@ -17,7 +19,7 @@ with file systems.
 
 ------------------------
 
-[publications][p] | [blog][b] | [github][g] | [linkedin][l] | [twitter][t] | [plus][w]
+[publications][p] | [blog][b] | [labnotebook][n] | [github][g] | [linkedin][l] | [twitter][t] | [plus][w]
 
 [damasc]: http://systems.soe.ucsc.edu/projects/damasc
 [uc]: http://ucsc.edu
@@ -25,9 +27,10 @@ with file systems.
 [srl]: http://systems.soe.ucsc.edu
 [c]: http://users.soe.ucsc.edu/~carlosm/
 [e]: mailto:ivo@cs.ucsc.edu
-[b]: /blog_index
+[b]: {{ site.url }}/blog_index
 [p]: http://scholar.google.com/citations?user=_f4sYhoAAAAJ
 [l]: http://www.linkedin.com/in/ivotron
+[n]: {{ site.url }}/labnotebook_index
 [y]: http://lanyrd.com/people/ivotron/
 [t]: https://twitter.com/ivotron
 [g]: https://github.com/ivotron

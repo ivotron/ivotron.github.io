@@ -36,5 +36,5 @@ graph-processing frameworks such as GraphLab..
 [bsp]: http://en.wikipedia.org/wiki/Bulk_synchronous_parallel
 [giraph]: http://incubator.apache.org/giraph/
 [graph-computing]: http://markorodriguez.com/2013/01/09/on-graph-computing/
-[arch]: /images/blog/2013-04-05-graphlab-and-graphbuilder.png
-[postmr]: {% post_url blog/2013-04-12-the-post-mapreduce-era %}
+[arch]: {{ site.url }}/images/blog/2013-04-05-graphlab-and-graphbuilder.png
+[postmr]: {% post_url 2013-04-12-the-post-mapreduce-era %}
