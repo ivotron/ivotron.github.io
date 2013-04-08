@@ -1,8 +1,6 @@
 ---
 title: 'Ivo Jimenez : Homepage'
 layout: main
-footer: false
-comments: false
 ---
 
 <img src="{{ site.url }}/images/ivo.jpg" class="mypic">

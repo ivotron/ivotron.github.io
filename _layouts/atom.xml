@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Ivo Jimenez</title>
   <link href="{{ site.url }}"/>
-  <link href="{{ site.url }}/blog_atom" rel="self"/>
+  <link href="{{ site.url }}/{{ category }}_atom.xml" rel="self"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>"{{ site.url }}</id>
   <author>

@@ -20,13 +20,13 @@
 
             {% if page.category == 'blog' %}
 
-              var disqus_shortname = 'labnotebook';
-              var disqus_identifier = 'labnotebook_id_{{ page.date | date:"%Y_%m_%d"}}';
-
-            {% elsif page.category == "contact" %}
-
               var disqus_shortname = 'ucscblog';
               var disqus_identifier = 'ucscblog_id_{{ page.date | date:"%Y_%m_%d"}}';
+
+            {% elsif page.category == "labnotebook" %}
+
+              var disqus_shortname = 'labnotebook';
+              var disqus_identifier = 'labnotebook_id_{{ page.date | date:"%Y_%m_%d"}}';
 
 	    {% endif %}
 
@@ -49,7 +49,7 @@
                 <p>
                     <a href="{{ site.url }}/blog_index">back to index</a><br />
                 </p>
-                   {% elsif page.category == "contact" %}
+                   {% elsif page.category == "labnotebook" %}
                 <p>
                     <a href="{{ site.url }}/labnotebook_index">back to index</a><br />
                 </p>
@@ -67,7 +67,7 @@
                 <a href="http://feeds.feedburner.com/ivotron">
                     <img src="/images/rss.gif" alt="Subscribe to RSS Feed" />
                 </a>
-            {% elsif page.category == "contact" %}
+            {% elsif page.category == "labnotebook" %}
                 <a href="http://feeds.feedburner.com/ivolabnotebook">
                     <img src="/images/rss.gif" alt="Subscribe to RSS Feed" />
                 </a>
@@ -75,7 +75,6 @@
 
             </div>
         </div>
-
     </div>
 </body>
 </html>
