@@ -1,5 +1,5 @@
 markdown: pandoc
-url: 'http://ivotron.me/'
+url: 'https://users.soe.ucsc.edu/~ivo'
 permalink: pretty
 pygments: true
 exclude: ['deploy', 'README.md']
