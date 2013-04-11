@@ -8,7 +8,7 @@ if git stash -u
   else exit $?
 fi
 
-if jekyll --pygments --no-future
+if jekyll
   then echo Jekyll Generation successful
   else exit $?
 fi
