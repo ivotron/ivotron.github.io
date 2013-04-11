@@ -13,7 +13,35 @@
             {{ content }}
         </div>
 
+        <hr />
+
+        <div class="footer">
+          <p>
+            {% if page.backtoindexlink %}
+              {% if page.category == 'blog' %}
+                <a href="{{ site.url }}/blog_index">back to index</a> |
+              {% elsif page.category == "labnotebook" %}
+                <a href="{{ site.url }}/labnotebook_index">back to index</a> |
+              {% endif %}
+            {% endif %}
+              <a href="{{ site.url }}">back to home</a> |
+            <span class="rss">
+            {% if page.category == 'blog' %}
+                <a href="http://feeds.feedburner.com/ivotron">
+                    <img src="{{ site.url }}/images/rss.gif" alt="Subscribe to RSS Feed" />
+                </a>
+            {% elsif page.category == "labnotebook" %}
+                <a href="http://feeds.feedburner.com/ivolabnotebook">
+                    <img src="{{ site.url }}/images/rss.gif" alt="Subscribe to RSS Feed" />
+                </a>
+            {% endif %}
+            </span>
+          </p>
+        </div>
+
         {% if page.comments %}
+
+        <hr />
 
         <div id="disqus_thread"></div>
         <script type="text/javascript">
@@ -28,7 +56,7 @@
               var disqus_shortname = 'labnotebook';
               var disqus_identifier = 'labnotebook_id_{{ page.date | date:"%Y_%m_%d"}}';
 
-	    {% endif %}
+        {% endif %}
 
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -40,41 +68,6 @@
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
         {% endif %}
-
-        <div class="footer">
-            <div class="contact">
-
-                {% if page.backtoindexlink %}
-                   {% if page.category == 'blog' %}
-                <p>
-                    <a href="{{ site.url }}/blog_index">back to index</a><br />
-                </p>
-                   {% elsif page.category == "labnotebook" %}
-                <p>
-                    <a href="{{ site.url }}/labnotebook_index">back to index</a><br />
-                </p>
-                   {% endif %}
-                {% endif %}
-
-                <p>
-                    <a href="{{ site.url }}">back to home</a><br />
-                </p>
-            </div>
-
-            <div class="rss">
-
-            {% if page.category == 'blog' %}
-                <a href="http://feeds.feedburner.com/ivotron">
-                    <img src="{{ site.url }}/images/rss.gif" alt="Subscribe to RSS Feed" />
-                </a>
-            {% elsif page.category == "labnotebook" %}
-                <a href="http://feeds.feedburner.com/ivolabnotebook">
-                    <img src="{{ site.url }}/images/rss.gif" alt="Subscribe to RSS Feed" />
-                </a>
-	    {% endif %}
-
-            </div>
-        </div>
     </div>
 </body>
 </html>

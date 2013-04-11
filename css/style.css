@@ -16,6 +16,8 @@ body {
   background: #F2F0E4;
   font: 15px Verdana, Helvetica, sans-serif;
   margin: auto auto auto 35px;
+  float: center;
+  width: 860px;
 }
 
 h1, h2, h3 {
@@ -44,10 +46,10 @@ code {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  margin: 1px auto auto 1px;
+  font-weight: bold;
 }
 /* but exclude the box from pygments' <code> elements */
-.sourceCode code { border: 0px solid black; }
+.sourceCode code { border: 0px solid black; font-weight: normal;}
 
 h1 a, h2 a, h3 a {
   text-decoration: none;
@@ -71,8 +73,6 @@ a:hover {
 /* Content */
 
 #content {
-  float: center;
-  width: 860px;
 }
 
 #content .bgtop {
@@ -150,6 +150,13 @@ img {
   -moz-border-radius: 12px;
   border-radius: 12px;
   margin: 1px auto auto 1px;
+}
+
+.rss img {
+  border: 0px solid gray ;
+  vertical-align: middle;
+  border-radius: 1px;
+  margin: auto auto auto auto;
 }
 
 figcaption {
