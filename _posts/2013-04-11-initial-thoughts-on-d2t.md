@@ -8,6 +8,7 @@ tags:
   - transactional-memory
   - d2t
   - transactional-storage
+  - research-ideas
 ---
 
 # {{ page.title }}
