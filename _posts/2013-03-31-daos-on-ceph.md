@@ -11,12 +11,12 @@ tags:
 
 # {{ page.title }}
 
-The [Fast-Forward I/O][ff-docs] project is divided in [five components][ff-intro], the last two 
-(from a top-down point of view) being the DAOS and Storage layers. This post contains a first 
-"round" on how these two layers could potentially be implemented on [Ceph](http://ceph.com). As I 
-get more into the details of the DAOS/Storage layers, as well as how Ceph works (from the FF point 
-of view) I'll have a better understanding. I'll post a "round 2" entry as soon as I feel that I have 
-significantly advanced on what I'm describing here.
+> **tl;dr**: The [Fast-Forward I/O][ff-docs] project is divided in [five components][ff-intro], the 
+last two (from a top-down point of view) being the DAOS and Storage layers. This post contains a 
+first "round" on how these two layers could potentially be implemented on [Ceph](http://ceph.com). 
+As I get more into the details of the DAOS/Storage layers, as well as how Ceph works (from the FF 
+point of view) I'll have a better understanding. I'll post a "round 2" entry as soon as I feel that 
+I have significantly advanced on what I'm describing here.
 
 The components of DAOS are [@barton_milestone_2012]:
 

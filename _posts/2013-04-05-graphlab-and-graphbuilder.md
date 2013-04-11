@@ -38,4 +38,4 @@ to batch-oriented graph-processing frameworks such as GraphLab.
 [graph-computing]: http://markorodriguez.com/2013/01/09/on-graph-computing/
 [graphbuilder]: https://01.org/graphbuilder/
 [arch]: https://01.org/graphbuilder/sites/default/files/users/u4/stack.jpg
-[postmr]: {% post_url 2013-04-12-the-post-mapreduce-era %}
+[postmr]: {% post_url 2013-04-11-the-post-mapreduce-era %}
