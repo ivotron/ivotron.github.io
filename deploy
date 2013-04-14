@@ -3,11 +3,6 @@
 # deploy the labnotebook
 
 # stash untracked files
-if git stash -u
-  then echo Stashed of untracked files successful
-  else exit $?
-fi
-
 if jekyll
   then echo Jekyll Generation successful
   else exit $?
@@ -20,11 +15,6 @@ fi
 
 if rsync -aruz _site/* riverdance.cse.ucsc.edu:public_html/
   then echo rsync operation successful
-  else exit $?
-fi
-
-if git stash pop
-  then echo Popped untracked files from stash successful
   else exit $?
 fi
 
