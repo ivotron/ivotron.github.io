@@ -11,11 +11,10 @@ Released for free under a Creative Commons Attribution 2.5 License
 
 body {
   text-align: justify;
-  font-size: 16px;
   color: #8A7F7F;
   background: #F2F0E4;
-  font: 15px Verdana, Helvetica, sans-serif;
-  margin: auto auto auto 35px;
+  font: 100% Verdana, Helvetica, sans-serif;
+  margin: auto auto auto auto;
   float: center;
   width: 860px;
 }
