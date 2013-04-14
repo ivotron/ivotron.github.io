@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fast-Forward on Ceph - Round 1
+title: DAOS on Ceph - Round 1
 category: labnotebook
 tags:
   - ceph
