@@ -1,4 +1,4 @@
-url: 'https://users.soe.ucsc.edu/~ivo'
+url: 'http://localhost:4000'
 permalink: pretty
 pygments: true
 exclude: ['deploy', 'README.md']
