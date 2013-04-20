@@ -19,6 +19,7 @@ March/2013; version 0.6). They are intended to be applied on Ubuntu 12.04 LTS.
 
 
 ```bash
+
 sudo aptitude install \
      build-essential automake libtool flex bison \
      git subversion \
@@ -39,21 +40,23 @@ The only difference between this and the build instructions at Github is the `--
 `./configure`:
 
 ```bash
-$> wget http://llvm.org/releases/3.2/llvm-3.2.src.tar.gz
-$> tar xvzf llvm-3.2.src.tar.gz
-$> cd llvm-3.2.src/tools
-$> svn co http://llvm.org/svn/llvm-project/cfe/tags/RELEASE_32/final/ clang
-$> cd ../projects
-$> svn co http://llvm.org/svn/llvm-project/compiler-rt/tags/RELEASE_32/final/ compiler-rt
-$> cd ..
-$> ./configure --with-pic --prefix=$HOME/.opt/
-$> make -j4 REQUIRES_RTTI=1
-$> make install
+
+wget http://llvm.org/releases/3.2/llvm-3.2.src.tar.gz
+tar xvzf llvm-3.2.src.tar.gz
+cd llvm-3.2.src/tools
+svn co http://llvm.org/svn/llvm-project/cfe/tags/RELEASE_32/final/ clang
+cd ../projects
+svn co http://llvm.org/svn/llvm-project/compiler-rt/tags/RELEASE_32/final/ compiler-rt
+cd ..
+./configure --with-pic --prefix=$HOME/.opt/
+make -j4 REQUIRES_RTTI=1
+make install
 ```
 
 Add it to `.bashrc`:
 
 ```bash
+
 PATH=$PATH:$HOME/.opt/bin/
 ```
 
@@ -62,14 +65,22 @@ PATH=$PATH:$HOME/.opt/bin/
 2.8.7 (the current version in 12.04) is too old and thus it can't find the JNI files correctly.
 Installing 2.8.9 from [this PPA][cmakeppa] solves the issue.
 
+```bash
+
+sudo add-apt-repository ppa:kubuntu-ppa/backports
+sudo aptitude update
+sudo aptitude install cmake
+```
+
 ### Java
 
 Java 7 works as fine as 6 (OpenJDK-7 has an [issue][openjdk-issue]):
 
 ```bash
-$> sudo add-apt-repository ppa:webupd8team/java
-$> sudo apt-get update
-$> sudo apt-get install oracle-java7-installer
+
+sudo add-apt-repository ppa:webupd8team/java
+sudo aptitude update
+sudo aptitude install oracle-java7-installer
 ```
 
 Then make sure `JAVA_HOME` is set correctly (in my case this points to 
@@ -80,15 +91,17 @@ Then make sure `JAVA_HOME` is set correctly (in my case this points to
 Instead of installing in `/usr/local`, I did in my `.opt/`:
 
 ```bash
-$> cd $HOME/.opt/
-$> wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz
-$> tar xvfz apache-maven-3.0.4-bin.tar.gz
-$> rm apache-maven-3.0.4-bin.tar.gz
+
+cd $HOME/.opt/
+wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz
+tar xvfz apache-maven-3.0.4-bin.tar.gz
+rm apache-maven-3.0.4-bin.tar.gz
 ```
 
 Then add the following to `.bashrc`:
 
 ```bash
+
 export M2_HOME=$HOME/.opt/apache-maven-3.0.4
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
