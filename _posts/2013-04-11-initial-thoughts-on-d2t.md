@@ -9,6 +9,7 @@ tags:
   - d2t
   - transactional-storage
   - research-ideas
+  - txn
 ---
 
 # {{ page.title }}
