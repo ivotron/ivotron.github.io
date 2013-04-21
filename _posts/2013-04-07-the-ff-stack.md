@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Fast-Forward I/O and Storage Stack
-category: labnotebook
+category: blog
 tags:
   - fast-forward
   - hpc
@@ -61,11 +61,11 @@ The prototype stack, from a top-down point of view, has the following components
  4. Distributed Application Object Storage (DAOS).
  5. Versioning Object Storage Device (VOSD).
 
-Applications running on the compute nodes will be written in Python scripts. These applications will 
-execute analysis on graph-based data (ACG). The point is to demonstrate both the HPC and BigData use 
-cases of the Exascale architecture. The data structures will be stored in HDF5, for which new API 
-extensions will be implemented. These new API calls will expose the transactional, asynchronous and 
-function-forwarding semantics of the underlying stack.
+Applications running on the compute nodes will be written in Python scripts or in C++ using the HDF5 
+APIs. These applications will execute analysis on graph-based data (ACG). The point is to 
+demonstrate both the HPC and BigData use cases of the Exascale architecture. The data structures 
+will be stored in HDF5, for which new API extensions will be implemented. These new API calls will 
+expose the transactional, asynchronous and function-forwarding semantics of the underlying stack.
 
 <!--
     TODO:
@@ -75,9 +75,9 @@ data down to the DAOS layer, implemented in Lustre.
 
 As mentioned before, the stack provides *non-POSIX, object-based, transactional and asynchronous 
 active-storage*, meaning that POSIX is supplanted by new object interfaces that reach up to the HDF5 
-layer (Application I/O in the stack diagram); transactional semantics are present all the 
-everywhere, from HDF down to the VOSD layer (Storage layer); clients don't need to wait for any 
-blocking operation; and analysis can be shipped and executed on I/O or DAOS nodes.
+layer (Application I/O in the stack diagram); transactional semantics are present, from HDF down to 
+the VOSD layer (Storage layer); clients don't need to wait for any blocking operation; and analysis 
+can be shipped and executed on I/O or DAOS nodes.
 
 In the following, I give a high-level description of each of layer.
 
@@ -90,8 +90,7 @@ unstructured data, and writes graph-specific formats into HDFS. These files are 
 GraphLab, a vertex-centric, asynchronous execution engine that runs directly on top of HDFS (i.e. 
 non-MapReduce). The following illustrates the architecture of both frameworks:
 
-![Figure 3. GraphLab and GraphBuilder stacks (taken from 
-[@willke_graphbuilderscalable_2012])][graphlab-arch]
+![Figure 3. GraphLab and GraphBuilder stacks (taken from [@willke_graphbuilderscalable_2012]).][graphlab-arch]
 
 In order to make both work on top of the exascale stack, both have to be modified. After these 
 modifications are implemented, GraphBuilder will be able to write the partitioned graph in (the 
@@ -112,7 +111,7 @@ point of view [@arnab_milestone_2012]:
 ## HDF5 extensions
 
 The extensions done to HDF5 allows an application to take full advantage of the new exascale 
-features. The additions comprise [@kozoil_milestone_2012-1] (Figure 4):
+features. The additions comprise [@koziol_milestone_2012-1] (Figure 4):
 
   1. Object-storage API based on HDF5 to support high-level data models. This exposes asynchronous, 
      transactional semantics to the application, as well as end-to-end data integrity. It will also 
@@ -128,36 +127,35 @@ features. The additions comprise [@kozoil_milestone_2012-1] (Figure 4):
 ![Figure 4. The HDF5 stack (taken from [@chaarawi_milestone_2013]).][hdf5-stack]
 
 In terms of the CN-ION communication model, a client/server architecture is implemented 
-[@kozoil_milestone_2012]: every ION runs an IOFSL (I/O Function Shipping Layer) server 
+[@koziol_milestone_2012]: every ION runs an IOFSL (I/O Function Shipping Layer) server 
 [@ali_scalable_2009]; the IOFSL client is integrated into the HDF5 library which runs on each CN. A 
 client can forward requests to any number of IONs. Every I/O operation issued by HDF5 is 
 asynchronously shipped to the IOFSL server and asynchronously executed.
 
 ## IOD
 
-The I/O dispatcher (IOD) can be simply described as the burst buffer layer to the computation nodes. 
-It handles shor. Every I/O node runs a IOD client, and in turn every IOD server runs a DAOS client 
-which allows it to communicate down to the long-term storage subsystem (Figure 5).
+The I/O dispatcher (IOD) can be simply described as the storage abstraction that the compute nodes 
+interact with. It encapsulates the burst buffer layer as well as long-term storage. Every I/O node 
+runs an IOD client, and in turn every IOD server runs a DAOS client which allows it to communicate 
+down to the long-term storage subsystem (Figure 5).
 
-![Figure 5. The HDF5 stack (taken from [@chaarawi_milestone_2013]).][hdf5-stack]
+![Figure 5. The IOD stack (taken from [@bent_milestone_2013]).][iod-stack]
 
-The IOD has
+IOD exposes the transactional, asynchronous and function-shipping functionality of the stack to 
+applications running on the compute nodes.
 
-It's important to note that, in the planned prototype, ION and DAOS transactional capabilities are 
-"separated", that is, the fact that a transaction committed on the IOD doesn't mean that it will 
-commit also on the long-term storage, and in fact might not persist if an error occurs on the ION 
-after it has committed. It means however, that new results/versions can be obtained from the 
-committed transaction consistently.
+## DAOS and VOSD
 
-## DAOS
-
-## VOSD
+This is the long-term storage and in the prototype consists of Lustre with extensions that will 
+allow the system to have transactions as well as function-shipping capabilities 
+[@lombardi_milestone_2012].
 
 ## References
 
 [ff-docs]: https://wiki.hpdd.intel.com/display/PUB/Fast+Forward+Storage+and+IO+Program+Documents
-[ff-stack]: {{ site.url }}/images/labnotebook/2013-04-07-ff-stack.png
-[ff-arch]: {{ site.url }}/images/labnotebook/2013-04-07-ff-arch.png
-[hdf5-stack]: {{ site.url }}/images/labnotebook/2013-04-07-ff-hdf5-stack.png
+[ff-stack]: {{ site.url }}/images/blog/2013-04-07-ff-stack.png
+[ff-arch]: {{ site.url }}/images/blog/2013-04-07-ff-arch.png
+[hdf5-stack]: {{ site.url }}/images/blog/2013-04-07-ff-hdf5-stack.png
+[iod-stack]: {{ site.url }}/images/blog/2013-04-07-ff-iod-stack.png
 [graphlab]: {% post_url 2013-04-05-graphlab-and-graphbuilder %}
 [graphlab-arch]: {{ site.url }}/images/blog/2013-04-05-graphlab-and-graphbuilder.png
