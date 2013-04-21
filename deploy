@@ -3,7 +3,7 @@
 # deploy the labnotebook
 
 # stash untracked files
-if jekyll
+if jekyll build
   then echo Jekyll Generation successful
   else exit $?
 fi
