@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Meeting Notes
+title: TXN Project Meeting Notes
 category: labnotebook
 tags:
   - hpc
