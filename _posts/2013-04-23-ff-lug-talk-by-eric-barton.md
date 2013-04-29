@@ -35,10 +35,22 @@ of framing the discussion could be in terms of the alternatives to each of these
     "light-weight" refers to the writers, and as per our discussion yesterday the complexity is 
     moved to the read side. Maybe it's worth looking at how a balance could be achieved
 
-I personally don't know the answers to these but I think this is a direction we might explore, 
-depending on how fundamental our questions have to be. Alternatively, and assuming that these 
-principles are taken for granted, IMO the next level we can consider is their implementation 
-choices:
+    > **Me**: I'm trying to get the use case point of view since I'm not 
+    familiar with HPC workloads. Jay sent a link to [this][pio]. I'm going back 
+    to the general requirements for checkpoint/restart. This paper gives an 
+    overview of approaches [@capello_toward_2009]. I'm not sure if this would be 
+    helpful though. Would it suffice to see it from a very high-level point of 
+    view? E.g. like what we discussed on Tuesday of having a matrix or any other 
+    distributed structured that is being updated concurrently my thousands of 
+    processes?
+    > I'm in the search of related work on "transactional primitives", to see if 
+    I can find anything that talks about write- or read-optimized approaches and 
+    their trade-offs.
+
+    I personally don't know the answers to these but I think this is a direction we might explore, 
+    depending on how fundamental our questions have to be. Alternatively, and assuming that these 
+    principles are taken for granted, IMO the next level we can consider is their implementation 
+    choices:
 
   - client-side vs. server-side coordination: (such as what we're doing with Jay)
 
@@ -55,6 +67,14 @@ choices:
     > **Noah**: I think the collective I/O referred to in the slides is to more in line with MPI-IO 
     collective, which achieve large reads and writes, and isn't about consensus during failures 
     (paxos) or gossiping.
+    > **Me**: You're right, MPI-IO-like communication is what he refers to as 
+    collective I/O.  The presentation references to CN-side collective I/O at 
+    the beginning and then at the end he talks about how they're planning to 
+    implement the atomic broadcast in DAOS through this O(logn) peering 
+    algorithm (which differs from chubby-like stuff) [@ganesh_peer--peer_2003].
+    They refer to the above as server collectives, which is what got me confused 
+    but it is a separate thing. This might be used by the IOD too though, I'm 
+    not sure.
 
   - Merging IOD and DAOS into a single layer. Eric explains their decision of having separate 
     layers:
@@ -261,3 +281,6 @@ the motivation of the design of the FF
 ## 14 IOD 15 HDF 16 Follow-up
 
   - nothing new here
+
+[pio]: https://www.mcs.anl.gov/research/projects/pio-benchmark/
+
