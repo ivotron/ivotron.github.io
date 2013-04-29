@@ -3,6 +3,7 @@ layout: post
 title: The need for Transactions in HPC
 category: labnotebook
 tags:
+  - txn
   - dtm
   - hpc
   - transactional-memory
