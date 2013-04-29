@@ -3,10 +3,10 @@ layout: post
 title: TXN Project Meeting Notes
 category: labnotebook
 tags:
+  - txn
   - hpc
   - d2t
   - transactional-storage
-  - txn
 ---
 
 
