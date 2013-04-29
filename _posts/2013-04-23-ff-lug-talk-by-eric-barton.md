@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Meeting Notes
+title: Notes on Eric Barton's LUG 2013 talk
 category: labnotebook
 tags:
   - ff
@@ -10,6 +10,9 @@ tags:
 ---
 
 # {{ page.title }}
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/pn_EEbmohDU" 
+frameborder="0" allowfullscreen></iframe>
 
 Watching the talk was very insightful. I think the first part, where he describes the principles is 
 very important (see my notes at the end if interested in a summary on these principles).
@@ -283,4 +286,3 @@ the motivation of the design of the FF
   - nothing new here
 
 [pio]: https://www.mcs.anl.gov/research/projects/pio-benchmark/
-

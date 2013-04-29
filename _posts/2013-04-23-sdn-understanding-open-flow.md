@@ -1,10 +1,10 @@
 ---
 layout: post
-title: SDN - Goals for Spring '13
+title: SDN - Learning OpenFlow Concepts
 category: labnotebook
 tags:
-  - end-to-end-resource-management
   - sdn
+  - end-to-end-resource-management
   - sdn-for-storage
 ---
 
@@ -14,9 +14,9 @@ I'm trying to learn the concepts first. This is what I've read so far:
 
   - relevant chapters from [this book](http://amzn.com/0132856204)
   - high-level description of the [network stack][net-stack]
-  - the level at which OpenFlow [operates][openflow-operates]
+  - the level at which OpenFlow [operates][openflow-level]
   - the [openflow tutorial][ts]
-  - OpenFlow Switch Specification (0x01 protocol) [@consortium_openflow_2009]
+  - OpenFlow Switch Specification (0x01 protocol) [@openflow_switch_consortium_openflow_2009]
 
 From the above I got:
 
@@ -50,7 +50,7 @@ The first one is a generic pattern, so it might apply to many flows. The second 
 that applies to a single flow (coming from an specific start-point). The third one is a 
 firewall-like rule. Routing and VLAN rules are supported (i.e. interconnect networks).
 
-The details of how the protocol works are in the spec [@consortium_openflow_2009].
+The details of how the protocol works are in the spec [@openflow_switch_consortium_openflow_2009].
 
 At this point, the concepts are clear, I know what OpenFlow is doing. Next step is to read the what 
 are some of the APIs to openflow as implemented in controllers, specifically in POX:

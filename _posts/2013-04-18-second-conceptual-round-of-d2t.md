@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Initial Thoughts on D2T and Integrated Application Workflows
+title: Second Round of Thoughts on D2T and Integrated Application Workflows
 category: labnotebook
 tags:
   - hpc

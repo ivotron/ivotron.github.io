@@ -3,8 +3,8 @@ layout: post
 title: SDN - Goals for Spring '13
 category: labnotebook
 tags:
-  - end-to-end-resource-management
   - sdn
+  - end-to-end-resource-management
   - sdn-for-storage
 ---
 

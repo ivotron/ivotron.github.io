@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Meeting Notes
+title: DAMASC Meeting Notes
 category: labnotebook
 tags:
   - ff
