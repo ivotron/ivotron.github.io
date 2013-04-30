@@ -3,10 +3,10 @@ layout: post
 title: Second Round of Thoughts on D2T and Integrated Application Workflows
 category: labnotebook
 tags:
+  - txn
   - hpc
   - d2t
   - transactional-storage
-  - txn
 ---
 
 been struggling trying to install the D2T build dependencies (trilinos/trios). I think I'll be able 
