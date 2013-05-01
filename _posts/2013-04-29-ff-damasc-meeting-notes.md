@@ -6,6 +6,7 @@ tags:
   - ff
   - hpc
   - transactional-storage
+  - minutes
 ---
 
 # {{ page.title }}
@@ -63,45 +64,6 @@ We summarized all our definitions/questions
 
 # QUESTIONS
 
-## Transactions/Consistency (High-Level)
-
-1.  What types of consistency semantics will be required for future
-    applications?
-    1.  What new app/middleware operations require transactions?
-
-2.  Who is anticipated to interface with a raw transactional API?
-    1.  Applications, middleware, PLFS, analysis
-
-3.  What is an end-to-end example of when “transaction” semantics are
-    required?
-    1.  Write-once checkpoint workloads?
-    2.  Mixed R/W workloads (e.g. checkpoint + BB analysis)?
-
-4.  What is the detailed process of reading data that is involved in a
-    transaction?
-
-    1.  How do you determine what data is the current consistent set?
-    2.  How do you determine when data is no longer valid?
-
-        1.  What about data versioning such as from multiple outputs of the same
-            data over the lifetime of a simulation?
-
-    3.  How are failures detected during a transaction?
-
-5.  Are versions intended to be modifications of previous versions, or
-    is each one expected to be completely different and only logically
-    related to previous versions?
-6.  Is anyone currently evaluating the performance of different design
-    choices at the IOD level? Eg. client- vs. server-side transaction
-    coordination.
-7.  Eric Barton’s LUG 2013 talk referenced to a “Scalable server health
-    & collectives” approach used to communicate and manage group
-    membership. Will this apply to DAOS nodes, IOD nodes or both?
-8.  Is the reason to have a separation of IOD and DAOS mainly to remove
-    the responsibility of the user to have to directly specify what's on
-    disk and what's on flash? If we could automatically determine this
-    (i.e. have a method to identify what goes to BB and what gets moved
-    to DAOS), would that matter to the CN-side if it’s being done by a
-    single layer (instead of a stacked one)?
+See [this entry]({% post_url 2013-04-30-ff-issdm-meeting-notes %})
 
 [cv]: {% post_url 2013-04-19-iod-as-we-understand-it %}
