@@ -12,6 +12,14 @@ tags:
   - research-ideas
 ---
 
+quickies:
+
+- since FF components are WAL-based (PLFS runs on IOD; ZFS/BTRFS in the OSD) it achieves atomicity 
+  and durability.
+- isolation/consistency is not FF's responsability
+
+---------
+
 Carlos replied to the question of whether or not ACID is required in an exascale scenario:
 
 > Data almost never gets modified once written. The only coordination we need is between simulation 
