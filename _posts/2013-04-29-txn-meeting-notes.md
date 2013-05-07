@@ -5,7 +5,6 @@ category: labnotebook
 tags:
   - txn
   - hpc
-  - d2t
   - transactional-storage
   - minutes
 ---

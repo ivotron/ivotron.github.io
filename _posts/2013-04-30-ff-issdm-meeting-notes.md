@@ -61,14 +61,6 @@ tags:
     In general, from what John Bent mentioned, they don't have any sophisticated method for 
     coordinating a transaction, either way (client- vs server-side) is leadership-based.
 
-    **New Questions**:
-
-      - if BB is on CN fabric, and is using atomic broadcasts, can we piggy back on those messages 
-        and implement transactions on top of them?
-      - how is it that server-side coordination enables asynchrony? We need to re-read the IOD 
-        milestone docs to try to understand this.
-      - others
-
 4.  Are versions intended to be modifications of previous versions, or is each one expected to be 
     completely different and only logically related to previous versions?
 
