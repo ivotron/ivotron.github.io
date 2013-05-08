@@ -6,6 +6,7 @@ tags:
   - sdn
   - end-to-end-resource-management
   - sdn-for-storage
+  - minutes
 ---
 
 # {{ page.title }}
