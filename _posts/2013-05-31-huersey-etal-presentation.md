@@ -1,3 +1,13 @@
+---
+layout: post
+title: TXN - Log-scaling paper
+category: labnotebook
+tags:
+  - txn
+  - hpc
+  - slides
+---
+
 % Hursey et al. “A Log-Scaling Fault Tolerant Agreement Algorithm for a Fault Tolerant MPI”
 % Ivo Jimenez
 % 2013-05-31
