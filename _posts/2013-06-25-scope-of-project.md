@@ -37,7 +37,7 @@ callback routine(s) in the application that gets invoked by an "iterate"-style r
 interface, passing in pieces of HDF5 file information (links, attributes, data elements, etc) for 
 the application to look at and decide if it wanted to keep the information.  And, the analysis 
 shipping component within HDF5 should divide up the HDF5 container, so that it can be processed in 
-parallel.  Not your typical MapReduce-style analysis, I don't think...
+parallel. Not your typical MapReduce-style analysis, I don't think...
 
 And this is where everything clicked. It looks like I'm on the right track then.
 
@@ -64,3 +64,4 @@ on publication side:
   - demo/workshop paper
 
 # References
+
