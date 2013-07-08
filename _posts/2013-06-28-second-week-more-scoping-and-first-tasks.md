@@ -10,6 +10,9 @@ tags:
 
 # {{ page.title }}
 
+**update 07/02:** based on our first meeting (next entry in lab notebook), I was able to answer the
+last (unanswered) questions
+
 I've been working on the to-dos I defined this week:
 
   - how does the entity diagram looks like?
@@ -18,7 +21,7 @@ I've been working on the to-dos I defined this week:
 
   - how about in terms for running processes?
 
-    ![entity diagram][images/labnotebook/2013-06-29-processes.png]
+    ![entity diagram with processes depicted there. The VOL plugin would be part of the FS process on the server][images/labnotebook/2013-06-29-processes.png]
 
   - in the diagram there is an client-side IOD component and a server-side one. Who's responsible 
     for managing the context of the server-side one? **A**: the functiion shipper daemon
@@ -70,6 +73,11 @@ I've been working on the to-dos I defined this week:
     analysis shipping component within HDF5 should divide up the HDF5 container, so that it can be 
     processed in parallel**. Not your typical MapReduce-style analysis, I don't think...
 
+    is there anything in HDF5 that already does this but for other VOL plugins? what about the PLFS 
+    VOL plugin? How about indexing?
+
+    **A**: no, the stage of the project is too early.
+
 # Next Steps
 
   - take a simple analysis routine (eg. median over a range of values) and implement it in FF-HDF5. 
@@ -86,3 +94,4 @@ implementation side:
 publication:
 
   - begin writing an intro section
+
