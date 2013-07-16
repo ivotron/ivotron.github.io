@@ -1,6 +1,7 @@
 *.sw*
 _site
 _posts/*.pdf
+_posts/*.docx
 _posts/*.odt
 _posts/*.tex
 _posts/*.html
