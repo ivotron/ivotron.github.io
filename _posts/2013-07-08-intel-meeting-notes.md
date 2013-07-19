@@ -10,6 +10,8 @@ tags:
 
 # {{ page.title }}
 
+Attendees: Jerome, Ruth, Quincey
+
   - we're not clear how the analysis shipping would be used:
       - a scientist launching jobs on IOD from his laptop
       - scientist allocating a "small" analysis cluster that would talk to IOD?
