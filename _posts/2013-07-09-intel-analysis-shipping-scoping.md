@@ -1,4 +1,14 @@
-# Analysis Shipping
+---
+layout: post
+title: Intel - Meeting Notes
+category: labnotebook
+tags:
+  - intel
+  - hdf5
+  - ff
+---
+
+# {{ page.title }}
 
 Analytical tasks can be generalized as directed acyclic graphs (DAG), which are executed on IOD. We 
 encapsulate the discussion of the Analysis Shipping feature around this framework. Doing so allows 
@@ -13,16 +23,16 @@ The following is the high-level use case we envision for the _Analysis Shipping_
  1. User writes an analysis task specification consisting of an analytical workflow that the system 
     has to execute.
 
- 2. User sends analysis task to IOD so that it gets executed.
+ 2. User sends analysis task so that it gets executed on IONs.
 
- 3. IOD returns an analysis monitor[^monitor] object.
+ 3. An analysis monitor object gets returned[^monitor].
 
  4. User can consult the execution state of the analysis task, as well as explore intermediate/final 
     results through the returned monitor.
 
 The above is in general what we would like to provide the user with. At this point there are several 
 unknowns that depend on the capabilities provided by IOD (and our correct understanding of them), 
-the assumptions made on client infrastructure, capabilities of IOD to execute user-defined code, 
+the assumptions made on client infrastructure, capabilities of IONs to execute user-defined code, 
 among others. We will frame our questions in terms of each of the steps presented previously.
 
 [^hpc-wf]: A good overview of existing workflow management systems is contained in 
@@ -50,9 +60,7 @@ planned to optionally demonstrate as part of EFF.
 
 **Questions**:
 
-  - This entire document assumes non-iterative workflows. The main reason being that iterative 
-    workflows inherently assume support for checkpointing, which might be too much for IOD to 
-    handle. In such cases, having an analysis cluster might be more well suited.
+  - This entire document assumes non-iterative workflows.
 
 ## Task specification
 
@@ -88,7 +96,12 @@ we can have the following JSON document:
       {
          "id": 3,
          "op": "write",
-         "dimensions": ["time","lat","long","elevation"],
+         "dimensions": [
+            "time",
+            "lat",
+            "long",
+            "elevation"
+         ],
          "attributes": "pressure"
       }
    ],
@@ -103,6 +116,35 @@ we can have the following JSON document:
 And graphically shown in Figure 1.
 
 ![The DAG for the three-node example.][plan]
+
+Note that the fact that an analysis flow is composed of three operators doesn't necessarily mean 
+that it will need to be implemented in three separate rounds of pipelined subtasks (see below on 
+"DAG execution section"). It depends on what the capabilities of the underlying execution engine 
+are. In this particular case, IOD allows for the implementation of a smarter aggregation operator 
+that encapsulates all of the above in a single operation (`iod_array_read` does the slab extraction 
+on its own), something like:
+
+```json
+{
+   "ops": [
+      {
+         "id": 1,
+         "op": "slab-extractor-aggregator",
+         "object": "ucar_data",
+         "space": {
+            "corner": [547,0,0,0],
+            "space":  [3650,360,360,50]
+         },
+         "slab": [2,36,36,10],
+         "attributes": "pressure",
+         "aggregate": "mean",
+      }
+   ],
+   "dag": {
+      "1": [],
+   }
+}
+```
 
 [^json]: This is just a top-of-the-head alternative, ideally we would like to represent DAGs 
 efficiently so we might need to use an internal representation (`H5*` object).
@@ -149,14 +191,14 @@ operator in a flow, the following:
 
  4. Terminate (or execute next operator in the pipeline).
 
-Figure 2 illustrates the above.
+Figure 2 illustrates the above. The DAG on the top is the one used in the example in Figure 1.
+
+![An MPI-based service for executing/coordinating the execution of a DAG.][mpi-cluster]
 
 **Questions**
 
   - how many ranks does the MPI communicator that it's available at the IOD have? if it's just as 
     many as IONs, then the above diagram should only have one task per ION.
-
-![An MPI-based service for executing/coordinating the execution of a DAG.][mpi-cluster]
 
 ### Parallel execution (**to-do**: needs to be extended)
 
@@ -171,17 +213,15 @@ Number 1 is straight-forward, as it's a matter of correctly referencing the path
 which we want to execute a query. For 2, as per [@bent_milestone_2013-1], IOD exposes mechanisms to 
 control the sharding/layout of objects.
 
+
+**Questions**:
+
   - What happens when an `iod_array_read` call receives `iod_array_iodesc_t` that is not aligned to 
     the underlying chunking strategy? If this isn't supported, i.e. all calls have to be aligned to 
     the underlying layout, we will need to either reshuffle data on our side (in terms of the 
     diagram in Figure 2, this means we would need to add a new vertical set of tasks before we can 
     apply the mean; in other words, the storage can't be our intermediate result) or 
     re-layout/replicate the object. (**to-do**: add example illustrating why)
-
-**Questions**:
-
-  - None so far; need to extend this description to get more in-depth to how exactly each task will 
-    operate "externally" (for internal, see next section on DAG Operators).
 
 ### DAOS shards
 
@@ -240,9 +280,7 @@ all scenarios[^vm].
 In order to support this scheme, an adaptation layer must seat between the IOD API and the user 
 code. This would expose IOD in the similar way that VOL does in the case of HDF5. For example, a 
 hypothetical EFF-extended `h5py` can be adapted by taking the corresponding python script and 
-replicating it on each subtask. In general, for each language runtime, this would end up looking 
-similar to the Agrios system developed on top of SciDB, which is capable of executing R scripts 
-without modification [@leyshock_agrios_2012].
+replicating it on each subtask.
 
 **Questions**:
 
@@ -309,6 +347,11 @@ include:
       - [UV-CDAT](http://uv-cdat.llnl.gov/wiki/UseCases)
       - [SciDB use cases](http://uv-cdat.llnl.gov/wiki/UseCases)
       - [AMUSE examples](http://www.amusecode.org/doc/examples/)
+
+**Questions**:
+
+  - implement a more complex example involving the reshuffling/re-laying-out of data (can IOD be 
+    used as a means of communicating between dependent subtasks).
 
 # References
 
