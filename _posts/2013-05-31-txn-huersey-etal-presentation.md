@@ -1,16 +1,12 @@
 ---
 layout: post
-title: TXN - Log-scaling paper
+title: TXN - Hursey et al. “A Log-Scaling Fault Tolerant Agreement Algorithm for a Fault Tolerant MPI”
 category: labnotebook
 tags:
   - txn
   - hpc
   - slides
 ---
-
-% Hursey et al. “A Log-Scaling Fault Tolerant Agreement Algorithm for a Fault Tolerant MPI”
-% Ivo Jimenez
-% 2013-05-31
 
 # `tl;dr`
 
@@ -134,10 +130,10 @@ MPI-3 Forum,”** University of Alabama Birmingham, Technical Report UABCIS-TR-2
 
 # References
 
-[2pc]: _posts/images/2013-05-31-hursey-2pc.png
-[2pc-states]: _posts/images/2013-05-31-hursey-2pc-states.png
-[2pc-fail]: _posts/images/2013-05-31-hursey-2pc-states.png
-[2pc-linear]: _posts/images/2013-05-31-hursey-2pc-linear.png
-[2pc-tree]: _posts/images/2013-05-31-hursey-2pc-tree.png
-[2pc-results1]: _posts/images/2013-05-31-hursey-2pc-failure-free.png
-[2pc-results2]: _posts/images/2013-05-31-hursey-2pc-failures.png
+[2pc]: {{ site.url }}/images/labnotebook/2013-05-31-hursey-2pc.png
+[2pc-states]: {{ site.url }}/images/labnotebook/2013-05-31-hursey-2pc-states.png
+[2pc-fail]: {{ site.url }}/images/labnotebook/2013-05-31-hursey-2pc-states.png
+[2pc-linear]: {{ site.url }}/images/labnotebook/2013-05-31-hursey-2pc-linear.png
+[2pc-tree]: {{ site.url }}/images/labnotebook/2013-05-31-hursey-2pc-tree.png
+[2pc-results1]: {{ site.url }}/images/labnotebook/2013-05-31-hursey-2pc-failure-free.png
+[2pc-results2]: {{ site.url }}/images/labnotebook/2013-05-31-hursey-2pc-failures.png

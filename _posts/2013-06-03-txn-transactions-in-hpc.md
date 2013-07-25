@@ -8,10 +8,6 @@ tags:
   - slides
 ---
 
-% Transactional HPC Storage
-% Ivo Jimenez
-% June 06, 2013
-
 ## tl;dr
 
   - transactional **capabilities** of exa-scale storage
@@ -326,5 +322,5 @@ recovery mechanisms (i.e. replaying/undoing based on the log)?
 [pio1]: http://www.mcs.anl.gov/research/projects/pio-benchmark/
 [pio2]: http://www.cs.dartmouth.edu/pario/examples.html
 [oltpbench]: http://oltpbenchmark.com/
-[lrm]: _posts/images/2013-06-03-transactions-lrm.png
-[whole]: _posts/images/2013-06-03-transactions-whole.png
+[lrm]: {{ site.url }}/images/labnotebook/2013-06-03-transactions-lrm.png
+[whole]: {{ site.url }}/images/labnotebook/2013-06-03-transactions-whole.png

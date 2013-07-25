@@ -69,7 +69,7 @@ physical arrangements work below TCP/IP (since that's the physical layer).
 
 [mn]: http://mininet.github.io/
 [w]: http://en.wikipedia.org/wiki/Network_topology
-[lnb]: {% post_url 2013-04-12-why-a-labnotebook-for-cs %}
+[lnb]: {% post_url 2013-06-30-blog-lab-notebook-for-cs %}
 [sdn]: http://en.wikipedia.org/wiki/Software-defined_networking
 [dp]: http://en.wikipedia.org/wiki/Data_plane
 [of]: http://openflow.org

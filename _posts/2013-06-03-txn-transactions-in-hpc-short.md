@@ -8,8 +8,6 @@ tags:
   - slides
 ---
 
-% Transactional HPC Storage
-
 # problem
 
   - hard to develop a generic transactional system (an TM/RM-agnostic manager)
@@ -80,5 +78,5 @@ tags:
 [pio1]: http://www.mcs.anl.gov/research/projects/pio-benchmark/
 [pio2]: http://www.cs.dartmouth.edu/pario/examples.html
 [oltpbench]: http://oltpbenchmark.com/
-[lrm]: _posts/images/2013-06-03-transactions-lrm.png
-[whole]: _posts/images/2013-06-03-transactions-whole.png
+[lrm]: {{ site.url }}/images/labnotebook/2013-06-03-transactions-lrm.png
+[whole]: {{ site.url }}/images/labnotebook/2013-06-03-transactions-whole.png
