@@ -10,10 +10,9 @@ tags:
 
 # {{ page.title }}
 
-Attendees: Jerome, Ruth, Quincey
+**Attendees**: Jerome, Ruth, Quincey
 
-We were discussing the [document I prepared on 'a workflow engine on top of IOD']({% post_url 
-2013-07-09-intel-analysis-shipping-scoping %}):
+We were discussing the [document I prepared on 'a workflow engine on top of IOD'][d]:
 
   - there is a confusion with the terms IOD and ION. IOD is the software library (the API). An ION 
     is an I/O node, where IO functions are executed
@@ -60,7 +59,9 @@ We need to answer, in concrete terms:
 
 # Next steps
 
-It would be helpful to write pseudo code of the procedure as answers to many of the above basic 
-questions.
+  - Update doc based on this discussion.
 
+  - It would be helpful to write pseudo code of the procedure as answers to many of the above basic 
+    questions.
 
+[d]: {% post_url 2013-07-09-intel-generalizing-analysis-shipping-in-FF %}
