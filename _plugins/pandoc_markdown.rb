@@ -1,1 +1,1 @@
-/home/ivo/.opt/jekyll-pandoc-plugin/pandoc_markdown.rb
+../../.opt/jekyll-pandoc-plugin/pandoc_markdown.rb
