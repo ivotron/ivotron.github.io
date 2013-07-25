@@ -10,7 +10,7 @@ tags:
 
 # {{ page.title }}
 
-Attendees: Jerome, Ruth, Quincey
+**Attendees**: Jerome, Ruth, Quincey
 
   - we're not clear how the analysis shipping would be used:
       - a scientist launching jobs on IOD from his laptop
@@ -21,5 +21,3 @@ Attendees: Jerome, Ruth, Quincey
 
   - create a document
   - request access to the internal HPDD wiki to Ira
-
-# to think about

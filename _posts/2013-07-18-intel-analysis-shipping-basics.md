@@ -1,5 +1,12 @@
-% Analysis Shipping Basics
-% Ivo Jimenez
+---
+layout: post
+title: Intel - Analysis Shipping Basics
+category: labnotebook
+tags:
+  - intel
+  - hdf5
+  - ff
+---
 
 # Basic behavior
 
@@ -28,10 +35,6 @@ The following describes the basic behavior of the analysis shipping feature:
 
  7. the master is in charge of creating an H5View object and "returning"[^noasynch]
 
-**Questions**:
-
-  - how is the master receiving the result of workers' subtasks?
-
 [^vol]: assuming that the call can be handled in the same way that any other `H5*_ff` call, the 
 difference will be that the VOL calls aren't invoked directly, rather, the analysis executor will 
 first coordinate the task in order to have all the ranks in the MPI communicator make (in parallel) 
@@ -40,7 +43,7 @@ VOL calls.
 [^noasynch]: I'm ignoring asynchrony for now, mainly because I don't understand well how the event 
 queues work
 
-## H5AEpublic.h
+# H5AEpublic.h
 
 This API would contain functions that allow an application to send/receive analysis tasks to remote 
 active-storage nodes (in this case IONs). This can be generalized as much as we want, up to having a 
@@ -49,11 +52,7 @@ would support shipping of `H5Query` objects.
 
 **Questions**:
 
-  - does this analysis shipping API have to be separate from the VOL API?
-  - does it have to be generalized in some other way?
-  - in current proposal, there's a dependency with some form of network communication (MPI in this 
-    case), since IONs need to be coordinated. This might need to be abstracted in order to have a 
-    generic Analysis Shipping API.
+  - can we generalize an Analysis extension and define a plugin-based architecture such as VOL?
 
 # Materializing results
 
@@ -62,9 +61,9 @@ container (due to synchronization between IOD and DAOS containers) [@bent_milest
 case an "app" is defined as whichever process that holds a handle to the mercury server (i.e. any 
 application being able to ship functions to the same VOL process running on ION).
 
-Since our proposal above is part of the VOL plugin, we aren't affected by this restriction. The 
-"only" thing we have to keep in mind is to handle transaction IDs correctly. For this we have two 
-alternatives:
+Since our proposal above is part of the server-side VOL plugin instance, we aren't affected by this 
+restriction. The "only" thing we have to keep in mind is to handle transaction IDs correctly. For 
+this we have two alternatives:
 
  1. let the app handle transaction assignment (as part of the `H5AE_ship_ff` call)
  2. have the analysis execution figure out how to not mess the transactions associated to new data 
@@ -105,11 +104,12 @@ Option 1 is the most straight-forward, so we should go with it and let the other
 
 In order to handle python scripts, we can do it in two ways:
 
- 1. Embed the python runtime in the analysis extensions (through the python [C bindings][pybinds])
+ 1. Embed the python runtime in the analysis extensions (through the python [C bindings][pybinds]).
  2. Extend `h5py` and execute remotely (i.e. python runs locally to the user/app and triggers 
     client-side VOL calls).
+ 3. Both, but executing through `h5py` locally at each ION.
 
-**NOTE:** this needs to be explored in more detail
+Option 3 looks like the most promising.
 
 # References
 
