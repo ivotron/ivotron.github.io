@@ -5,9 +5,4 @@ exclude: ['deploy', 'README.md']
 markdown: pandoc
 
 pandoc:
-  extensions:
-    - smart
-    - standalone
-    - csl: '$HOME/.opt/styles/ieee-w-url.csl'
-    - bibliography: '$HOME/.citations/zotero.bib'
-    - highlight-style: 'pygments'
+  flags: "--smart --standalone --csl=$HOME/.opt/styles/ieee-with-url.csl --bibliography=$HOME/.citations/zotero.bib --highlight-style=pygments"
