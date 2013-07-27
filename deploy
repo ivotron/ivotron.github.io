@@ -8,7 +8,7 @@ if jekyll build
   else exit $?
 fi
 
-if chmod 755 -R _site/*
+if chmod -R 755 _site/*
   then echo chmod successful
   else exit $?
 fi

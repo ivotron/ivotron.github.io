@@ -58,7 +58,7 @@ module Jekyll
           flags = "#{@config['pandoc']['flags']} #{@config['pandoc']['site_flags']}"
 
           output = ''
-          Open3::popen3("pandoc -t html5 #{flags}") do |stdin, stdout, stderr|
+          Open3::popen3("pandoc -t html5 #{flags} 2>/tmp/null") do |stdin, stdout, stderr|
             stdin.puts content
             stdin.close
 
