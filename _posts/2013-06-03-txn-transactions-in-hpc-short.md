@@ -10,7 +10,7 @@ tags:
 
 # problem
 
-  - hard to develop a generic transactional system (an TM/RM-agnostic manager)
+  - hard to develop a generic transactional system
 
   - **main issue**: key design decisions influenced by:
 
@@ -44,34 +44,24 @@ tags:
 
 # actionable items
 
-  - mock the FF IOD API using redis/leveldb/sqlite
+IOD:
 
-  - the idea is to be API-compatible with IOD
-
-  - we can then reimplement the IOD API on Ceph
-
-  - coordination: FF-like LTM, it boils down to **TID assignment**.
-
-# workloads
-
-  - pick 2-3 workloads from [PIO][pio1] [benchmarks][pio2] (IOR, fs_test, ).
-
-  - plus 1-2 from [OLTPBench][oltpbench] (TPC-C and YCSB).
-
-  - implement them on our framework (IOD API).
-
+  - implement IOD API in Ceph
   - coordination:
+      - initially: 2PC on Paxos [@gray_consensus_2006]
+      - later: granola [@cowling_granola_2012] and HAT [@bailis_non-blocking_2013]
+      - with an FF-like LTM, it boils down to **TID assignment**
 
-      - 2PC [@al-houmaily_atomic_2010]
-      - granola [@cowling_granola_2012]
-      - HAT [@bailis_non-blocking_2013]
+workloads:
 
+  - modify fs-test:
+      - extend IO modes (add a new `IO_IOD` mode)
+      - add new `READ_WRITE` type of test
+  - [OLTPBench][oltpbench] (TPC-C and YCSB).
+  - port one [Parallel I/O][pio1] [benchmarks][pio2] (IOR, AMR, ??).
   - compare in terms of:
-
-      - **application requirements**. pay attention to the isolation/consistency requirements while 
-        porting HPC code.
-      - **performance**. w.r.t. traditional metrics: TPS, contention index, percentage of 
-        distributed transactions.
+      - **application requirements**
+      - **performance**
 
 # references
 
