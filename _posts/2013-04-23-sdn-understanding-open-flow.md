@@ -60,5 +60,5 @@ are some of the APIs to openflow as implemented in controllers, specifically in 
 [net-stack]: http://en.wikipedia.org/wiki/Network_stack
 [openflow-level]: {% post_url 2013-04-10-sdn-mininet-intro %}
 [ts]: http://www.stanford.edu/~brandonh/ONS/OpenFlowTutorial_ONS_Heller.pdf]
-[basics]: {{ site.url }}/images/2013-04-23-sdn-openflow-basics.png
-[rules]: {{ site.url }}/images/2013-04-23-sdn-openflow-basics-rules.png
+[basics]: {{ site.url }}/images/labnotebook/2013-04-23-sdn-openflow-basics.png
+[rules]: {{ site.url }}/images/labnotebook/2013-04-23-sdn-openflow-basics-rules.png
