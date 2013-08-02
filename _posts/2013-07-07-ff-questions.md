@@ -30,8 +30,8 @@ projects (masters/phd thesis maybe?)
     operations, I think it will be more efficient to let IOD handle the asynchrony and have VOL 
     operate transparently into the IOD API
 
-  - w.r.t. the new Map object, it isn't clear why is this needed. Would it be better to reuse the 
-    attribute object but implement it internally as a map? Not sure why this is needed.
+  - w.r.t. the new HDF5 Map object, it isn't clear why is this needed. Would it be better to reuse 
+    the attribute object but implement it internally as a map? Not sure why this is needed.
 
   - I get the sense that the layering of FF will be very costly. This has to be proven 
     experimentally but I think that the Ceph approach of centralizing the knowledge will turn out to 
