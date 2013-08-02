@@ -58,7 +58,7 @@ are some of the APIs to openflow as implemented in controllers, specifically in 
    <https://openflow.stanford.edu/display/ONL/POX+Wiki#POXWiki-OpenFlowinPOX>
 
 [net-stack]: http://en.wikipedia.org/wiki/Network_stack
-[openflow-level]: {% post_url 2013-04-10-sdn-mininet-intro %}
+[openflow-level]: http://otherpost.com
 [ts]: http://www.stanford.edu/~brandonh/ONS/OpenFlowTutorial_ONS_Heller.pdf]
-[basics]: {{ site.url }}/images/labnotebook/2013-04-23-sdn-openflow-basics.png
-[rules]: {{ site.url }}/images/labnotebook/2013-04-23-sdn-openflow-basics-rules.png
+[basics]: images/labnotebook/2013-04-23-sdn-openflow-basics.png
+[rules]: images/labnotebook/2013-04-23-sdn-openflow-basics-rules.png
