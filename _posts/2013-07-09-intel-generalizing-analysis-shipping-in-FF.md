@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Intel - Meeting Notes
+title: Intel - Generalizing Analysis Shipping Feature
 category: labnotebook
 tags:
   - intel

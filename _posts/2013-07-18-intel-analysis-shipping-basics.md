@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Intel - Analysis Shipping Basics
+title: Intel - Analysis Shipping Basic Functionality
 category: labnotebook
 tags:
   - intel
@@ -8,7 +8,7 @@ tags:
   - ff
 ---
 
-# Basic behavior
+# {{ page.title }}
 
 The following describes the basic behavior of the analysis shipping feature:
 
