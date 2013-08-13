@@ -160,10 +160,20 @@ The python wrapper is in charge of:
   * `src/H5VLiod_server.c`: function `H5VL_iod_server_eff_init` initializes analysis shipping 
     extensions too by passing MPI communicator and `fapl_id` reference.
 
+An EFF client uses the `H5FFpublic.h`, which is implemented in `H5FF.c`, which in turn makes calls 
+to client-side VOL calls. Since the functionality that we're implementing as part of analysis 
+shipping is not part of vanilla HDF5, we also need wrappers
+
+If EFF didn't require any HDF5 extensions, implementation on the VOL calls would suffice.
+
+As a reference, we have this diagram:
+
+![diagram][d]
+
 # New files
 
   * `src/H5ASpublic.h`: analysis shipping API, defining `H5AScreate` and `HASexecute` function 
-    signatures.
+    signatures, as well as the 
   * `src/H5AS.c`: implementation of analysis execution. This contains the code MPI-based code (see 
     [Server]). This is like other EFF client application running on CNs, with the difference that 
     the app runs on IONs
@@ -177,3 +187,4 @@ function, along with IOD initialization, the analysis shipping extension (see [N
 initialized too by giving it the MPI comm, as well as the instance of the IOD VOL plugin (`fapl_id` 
 reference).
 
+[d]: {{ site.url }}/images/labnotebook/2013-08-07-hdf5-diagram.png
