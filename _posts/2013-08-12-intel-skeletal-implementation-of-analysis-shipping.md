@@ -32,6 +32,7 @@ This is a very primitive server-side skeletal implementation (just prints to std
 should be actually invoked, kind of like the way IOD is currently "implemented"). My idea is to keep 
 iterating, adding functionality/tests on each cycle. I think next immediate steps could be:
 
+ 0. Implement `H5View` data structure
  1. Implementation of a hard-coded `H5VCreate`, i.e. won't actually execute any query but a 
     predefined one
  2. Implement `H5Vget_elem_regions`, so that each worker is able to iterate on a view
