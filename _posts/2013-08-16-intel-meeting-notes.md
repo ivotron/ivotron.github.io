@@ -18,8 +18,8 @@ output of analysis:
 
   * a single dataset might not be enough to capture the output.
   * alternatively, we should let the analysis application execute whatever write calls it wants
-  * so first thing that we should do is to wrap regular HDF5 calls in python and allow him/her to 
-    execute whatever it wants
+  * so first thing that we should do is to wrap regular HDF5 calls in python and allow user to 
+    execute whatever s/he wants
 
 query-only tasks:
 
@@ -56,6 +56,8 @@ next steps:
 
 higher-level issues:
 
+  * the examples show a bias towards the netcdf format. Need to figure out why and make changes so 
+    that the example is more hdf-oriented
   * just give access to the mpi communicator to the apps and let them do whatever they want.
 
 [sd]: {% post_url 2013-08-16-intel-analysis-shipping-implementation %}

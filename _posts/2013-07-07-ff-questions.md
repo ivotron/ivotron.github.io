@@ -61,3 +61,49 @@ projects (masters/phd thesis maybe?)
 
   - what's the local (BB) file system used on the IOD? 
 
+## Transactions
+
+
+In general, FF's transactions are concerned with durability and atomicity, leaving isolation to the 
+app. Can we find another approach, that is more strict but doesn't affect in terms of concurrency. 
+The main difference between a transactional system and EFF's is that the latter allows to have 
+multiple versions of history.
+
+----------
+
+I'm personally curious to see if an "intermediate" approach would work better. I suggested it in one 
+of our meetings: calculate a-priori transaction IDs , plan the work by calculating 
+dependencies/locality w.r.t. isolation and execute without coordination (the last write is what we 
+care about).
+
+Pros:
+  * no need to worry about isolation (from users point of view)
+
+Cons:
+
+  * how do we identify operations (might need a high-level lang)
+
+----------
+
+The FF assumption is that commits are done strictly in transaction ID (TID) order:
+
+    1 - 2 -- 3 - 5
+          \
+           - 4 - 6
+
+or alternatively:
+
+    1 - 2 -- 3 - 4
+          \
+           - 5 - 6
+
+In the example, anything above 3 can't commit, even if it doesn't have (bad) implications on 
+subsequent transactions. If we know that 4 (or 5 in the alternate example) have committed, we could 
+allow 6 to commit too without waiting for 3.
+
+----------
+
+Another idea: how can we partition the "transactional space" in such a way that we have coordination 
+locality? This might be similar to sub-transactions. Would this be related to granola's independent 
+transactions?
+
