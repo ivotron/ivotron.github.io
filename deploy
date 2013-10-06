@@ -13,7 +13,8 @@ if chmod -R 755 _site/*
   else exit $?
 fi
 
-if rsync -aruz _site/* riverdance.cse.ucsc.edu:public_html/
+#if rsync --itemize-changes -anv _site/* riverdance.cse.ucsc.edu:public_html/ > foo
+if rsync -av _site/* riverdance.cse.ucsc.edu:public_html/
   then echo rsync operation successful
   else exit $?
 fi
