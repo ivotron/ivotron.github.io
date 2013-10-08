@@ -249,6 +249,72 @@ f.close()
 
   * declarative interface
 
+<!--
+comments:
+
+Joe:
+
+  - add slide numbers. Makes asking questions a ton easier if you can say "on slide X...l
+  - first figure: fix label on storage cluster. It's under the image
+  - Slide "new possibilities": third bullet should start with "is"?
+  - "high-level flow" slide: use 2 bullet points for "two-phase execution". It's unclear where the 
+    three items fall into the two phases.
+  - maybe talk up the idea of optimizing data movement and reorganization when loading data from 
+    disk into the cluster. This is a really useful feature for after the fact analytics.
+
+Carlos:
+
+  * Ivo's dry run; start at 9:53, ends at 10:30
+  * Mention summer internship at Intel
+  * Need better context for exascale: swim lanes
+  * Slide numbers!
+  * Pictures instead of ASCII art
+      * Better stick with architecture drawing
+      * "exascale API" is not that meaningful
+      * You say a lot of things without illustration on that slide
+  * Why transactions? Why asynchronous?
+  * Architecture: explain difference of IO node network topology compared to storage nodes
+  * Object-based features
+      * Significance of "objects" is not clear
+      * What is "IOD"?
+  * Analysis applications
+      * I'm lost
+  * New possibilities
+      * looks redundant
+  * Our initial efforts
+      * looks redundant
+  * you start explaining everything too late
+  * Architecture: finally an overview -- start with that and stick to it!
+      * Check out how Eric Barton introduces all this! Needs to be much more compact
+  * User API: use "system API" instead
+  * Example: concept of neighborhood, needs to be determined by application
+      * Need to be clearer about layering
+  * Execution: 
+  * Future work: Need to give a better context of your work and provide reference points of that context in your presentation
+
+There is a lot of stuff, so this is the main challenge of the talk.
+
+Mike:
+
+Problem: Merge middleware + underlying API
+Solution: Run dynamic code on IO nodes, control data flow dynamically, let the system place the data in the right place
+
+Notes
+
+* I am not familiar with the FastForward project. It might be helpful if you:
+	- Explain why POSIX won't scale
+	- Provide some examples of problems LANL was running into (I know they had IO nodes before but why were these failing?)
+* I know nothing about the new API. You should explain:
+	- Some of the additional "file system calls" that helps the user tell the system about the data
+	- Explicitly compare and contrast POSIX and the new API
+	- List additional user responsibilities, such as:
+                - telling the system how to place data on certain compute nodes
+                - grouping blocks
+                - sharding data
+* Add slide numbers + SRL logo
+
+  -->
+
 [exa-arch]: {{ site.url }}/images/labnotebook/2013-10-22-exa-arch.png
 [exa-layout]: {{ site.url }}/images/labnotebook/2013-10-22-exa-layout.png
 [analysis-layers]: {{ site.url }}/images/labnotebook/2013-10-22-analysis-layers.png
