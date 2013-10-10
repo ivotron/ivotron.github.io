@@ -38,6 +38,15 @@ Plan de trabajo tentativo para el primer año de actividades del capítulo:
 
 # Miembros
 
+## Alejandra Salazar
+
+  * Areas: PLAN, MIS
+  * Lugar: Palo Alto, CA
+  * Dirección: <alejandras@hp.com>
+  * Tipo: Profesional
+  * Compañía: HP
+  * Puesto: Software Engineer
+
 ## Tere Gonzalez
 
   * Areas: MIS, PLAN
@@ -91,6 +100,25 @@ Plan de trabajo tentativo para el primer año de actividades del capítulo:
   * Tipo: Académico
   * Compañía: HP
   * Puesto: Senior Researcher
+
+## Jose Luis Beltran
+
+  * Areas: KDD, MIS
+  * Lugar: Palo Alto, CA
+  * Dirección: <jose.luis.beltran@hp.com>
+  * Tipo: Académico
+  * Compañía: HP
+  * Puesto: Senior Researcher
+
+## Pedro Regueiro
+
+  * Areas: MOD, KDD
+  * Lugar: Santa Cruz, CA
+  * Dirección: <pregueir@soe.ucsc.edu>
+  * Tipo: Estudiante
+  * Universidad: UCSC
+  * Grado: Doctorado
+  * Tiempo: 4 años
 
 ## Ivo Jimenez
 
