@@ -9,59 +9,89 @@ tags:
   - slides
 ---
 
-# Exascale Computing
+# HPC Storage Evolution
 
-  * end of decade
-  * millions of processors
-  * billions of processes
-  * **storage is a major bottleneck**
+![][evo1]
 
-# Exascale Architecture
+# HPC Storage Evolution
 
-![][exa-arch]
+![][evo2]
 
-# Exascale Stack
+# HPC Storage Evolution
 
-Current:
+![][evo3]
 
-       apps
-       --------------
-       hdf/netcdf/etc
-       --------------
-       middleware (ADIOS, PLFS, MPI-IO, etc)
-       --------------
-       POSIX
+# HPC Storage Evolution
+
+![][evo4]
+
+# HPC Storage Evolution
+
+![][evo5]
+
+# HPC Storage Evolution
+
+![][evo6]
 
 <!--
+  middleware:
+
   * not only middleware but HW too (SSDs)
   * metadata management
   * data placement
   * preprocessing of data (prepare to analysis efficiently)
   * I/O forwarding
   * asynchronous execution
+  * **main problem**: FS services are hidden
   -->
 
-Exascale:
+# Exascale Computing
 
-       apps
-       --------------
-       hdf/netcdf/etc
-       --------------
-       exascale API
+  * end of decade
+  * millions of processors
+  * billions of processes
+  * storage is a major bottleneck (again)
+
+# Exascale Computing
+
+![][posix]
+
+# Exascale Computing
+
+  **POSIX must die!**
+
+# DOE Fast Forward I/O and Storage
+
+![][ff]
 
 <!--
-  * exa-scale merges the hw/middleware/posix layers
-  * by proposing API
-  * current efforts (to the best of our knowledge) Exascale IO Initiative and FF
+  * fast forward merges the hw/middleware/posix layers
+  * by proposing a new API
+  * current efforts (to the best of our knowledge) Exascale IO 
+    Initiative and FF
   * **to-do**.
   -->
 
-# Exascale Stack Features
+# Fast Forward Goals
 
-  * transactions
-  * asynchronous
-  * I/O staging
-  * object-based
+  * give control back to the application
+  * main I/O Dispatcher (IOD) API
+
+# IOD Features
+
+  * no POSIX :)
+  * staging/FS without middleware
+  * expose
+
+  transactions
+
+  asynchronous
+
+  I/O staging
+
+  object-based
+
+# Applications
 
 # Staging (I/O nodes)
 
@@ -88,14 +118,18 @@ Exascale:
  5. write output
 
 <!--
-  * user cares about 3 and wants to bother as less as possible about specifics of 1-2,4-5
-  * main difference is the focus on data-intensive tasks rather than compute-intensive ones (which 
-    are already running in the compute nodes)
+  * user cares about 3 and wants to bother as less as possible about 
+    specifics of 1-2,4-5
+  * main difference is the focus on data-intensive tasks rather than 
+    compute-intensive ones (which are already running in the compute 
+    nodes)
   * we don't consider workflows... yet
   * the assignment of blocks to nodes creates a neighborhood
   * applications need to be aware of these
-  * communication among them follow patterns (point-to-point, nearest neighbors, etc.)
-  * it's a generalization of Map/Reduce (which corresponds to all-to-all)
+  * communication among them follow patterns (point-to-point, nearest 
+    neighbors, etc.)
+  * it's a generalization of Map/Reduce (which corresponds to 
+    all-to-all)
   -->
 
 # Analysis Applications
@@ -212,9 +246,11 @@ f.close()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 <!--
-  * line 5 above returns the list of `slice` objects (numpy-ish thing) that correspond to `D1`.
+  * line 5 above returns the list of `slice` objects (numpy-ish thing) 
+    that correspond to `D1`.
   * in other words, the shards local to the ION
-  * important stuff to note is the usage of `local_shards` and `iod_comm`.
+  * important stuff to note is the usage of `local_shards` and 
+    `iod_comm`.
   -->
 
 # Execution
@@ -225,8 +261,8 @@ f.close()
   4. execute script on each
 
 <!--
-  * I assume that HDF5 is using IOD "properly", i.e. no need to trigger global communication for 
-    doing accessing hyperslabs
+  * I assume that HDF5 is using IOD "properly", i.e. no need to 
+    trigger global communication for doing accessing hyperslabs
   -->
 
 # Status
@@ -249,31 +285,29 @@ f.close()
 
   * declarative interface
 
+# References {.allowframebreaks}
+
 <!--
 comments:
 
 Joe:
 
-  - add slide numbers. Makes asking questions a ton easier if you can say "on slide X...l
+  - add slide numbers. Makes asking questions a ton easier if you can 
+    say "on slide X...l
   - first figure: fix label on storage cluster. It's under the image
   - Slide "new possibilities": third bullet should start with "is"?
-  - "high-level flow" slide: use 2 bullet points for "two-phase execution". It's unclear where the 
-    three items fall into the two phases.
-  - maybe talk up the idea of optimizing data movement and reorganization when loading data from 
-    disk into the cluster. This is a really useful feature for after the fact analytics.
+  - "high-level flow" slide: use 2 bullet points for "two-phase 
+    execution". It's unclear where the three items fall into the two 
+    phases.
+  - maybe talk up the idea of optimizing data movement and 
+    reorganization when loading data from disk into the cluster. This 
+    is a really useful feature for after the fact analytics.
 
 Carlos:
 
-  * Ivo's dry run; start at 9:53, ends at 10:30
-  * Mention summer internship at Intel
-  * Need better context for exascale: swim lanes
-  * Slide numbers!
-  * Pictures instead of ASCII art
-      * Better stick with architecture drawing
-      * "exascale API" is not that meaningful
-      * You say a lot of things without illustration on that slide
   * Why transactions? Why asynchronous?
-  * Architecture: explain difference of IO node network topology compared to storage nodes
+  * Architecture: explain difference of IO node network topology 
+    compared to storage nodes
   * Object-based features
       * Significance of "objects" is not clear
       * What is "IOD"?
@@ -284,37 +318,53 @@ Carlos:
   * Our initial efforts
       * looks redundant
   * you start explaining everything too late
-  * Architecture: finally an overview -- start with that and stick to it!
-      * Check out how Eric Barton introduces all this! Needs to be much more compact
+  * Architecture: finally an overview -- start with that and stick to 
+    it!
+      * Check out how Eric Barton introduces all this! Needs to be 
+        much more compact
   * User API: use "system API" instead
-  * Example: concept of neighborhood, needs to be determined by application
+  * Example: concept of neighborhood, needs to be determined by 
+    application
       * Need to be clearer about layering
   * Execution: 
-  * Future work: Need to give a better context of your work and provide reference points of that context in your presentation
+  * Future work: Need to give a better context of your work and 
+    provide reference points of that context in your presentation
 
 There is a lot of stuff, so this is the main challenge of the talk.
 
 Mike:
 
 Problem: Merge middleware + underlying API
-Solution: Run dynamic code on IO nodes, control data flow dynamically, let the system place the data in the right place
+Solution: Run dynamic code on IO nodes, control data flow dynamically, 
+let the system place the data in the right place
 
 Notes
 
-* I am not familiar with the FastForward project. It might be helpful if you:
-	- Explain why POSIX won't scale
-	- Provide some examples of problems LANL was running into (I know they had IO nodes before but why were these failing?)
+* I am not familiar with the FastForward project. It might be helpful 
+  if you:
+        - Explain why POSIX won't scale
+        - Provide some examples of problems LANL was running into (I 
+          know they had IO nodes before but why were these failing?)
 * I know nothing about the new API. You should explain:
-	- Some of the additional "file system calls" that helps the user tell the system about the data
-	- Explicitly compare and contrast POSIX and the new API
-	- List additional user responsibilities, such as:
-                - telling the system how to place data on certain compute nodes
+        - Some of the additional "file system calls" that helps the 
+          user tell the system about the data
+        - Explicitly compare and contrast POSIX and the new API
+        - List additional user responsibilities, such as:
+                - telling the system how to place data on certain 
+                  compute nodes
                 - grouping blocks
                 - sharding data
 * Add slide numbers + SRL logo
 
   -->
 
-[exa-arch]: {{ site.url }}/images/labnotebook/2013-10-22-exa-arch.png
+[evo1]: {{ site.url }}/images/labnotebook/2013-10-22-evo1.png
+[evo2]: {{ site.url }}/images/labnotebook/2013-10-22-evo2.png
+[evo3]: {{ site.url }}/images/labnotebook/2013-10-22-evo3.png
+[evo4]: {{ site.url }}/images/labnotebook/2013-10-22-evo4.png
+[evo5]: {{ site.url }}/images/labnotebook/2013-10-22-evo5.png
+[evo6]: {{ site.url }}/images/labnotebook/2013-10-22-evo6.png
+[ff]: {{ site.url }}/images/labnotebook/2013-10-22-ff.png
+[posix]: {{ site.url }}/images/labnotebook/2013-10-22-posix.png
 [exa-layout]: {{ site.url }}/images/labnotebook/2013-10-22-exa-layout.png
 [analysis-layers]: {{ site.url }}/images/labnotebook/2013-10-22-analysis-layers.png
