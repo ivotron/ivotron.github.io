@@ -21,7 +21,7 @@ Miembros](#miembros)).
   * Management of Data (MOD)
   * Management of Information Systems (MIS)
   * Knowledge Data Discovery (KDD)
-  * Operating Systems (OS)
+  * Operating Systems (OPS)
   * Programming Languages (PLAN)
 
 # Plan de Trabajo
@@ -33,8 +33,14 @@ Plan de trabajo tentativo para el primer año de actividades del capítulo:
  3. Mantenimiento de la información del capítulo en la página de la SMCC.
  4. Integración de miembros adicionales, sobre todo de estudiantes/académicos 
     (Stanford/UCB/UCSF/UCSC).
- 5. Creación de un [MeetUp](http://meetup.com).
- 6. Llevar a cabo una mesa redonda por trimestre.
+ 5. Creación de un [MeetUp](http://meetup.com), para "socializar" la 
+    comunicación y participación de los miembros del capítulo.
+ 6. Llevar a cabo una mesa redonda por trimestre. El objetivo primario 
+    será discutir qué tipo de actividades se están haciendo en la 
+    academia/industria en México y ver qué tipo de vinculación puede 
+    haber entre esos proyectos y la gente que reside en el norte de 
+    California (y viceversa). En general, crear una red de talento 
+    mexicano en NorCal.
 
 # Miembros
 
@@ -58,7 +64,7 @@ Plan de trabajo tentativo para el primer año de actividades del capítulo:
 
 ## Salomon Chavez
 
-  * Areas: OS
+  * Areas: OPS
   * Lugar: Palo Alto, CA
   * Dirección: salomon_chavez@hotmail.com
   * Tipo: Profesional
