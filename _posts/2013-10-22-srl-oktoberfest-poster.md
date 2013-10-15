@@ -3,20 +3,22 @@ layout: post
 title: 'A Framework for Exascale Analysis Shipping'
 category: labnotebook
 author:
-  - name: Ivo Jimenez
+  - names: Ivo Jimenez
 tags:
   - srl
   - hdf5
   - ff
   - slides
-template: a0poster
 classoption: landscape
+template: a0poster
 papersize: a0
 columns: 3
 columnsep: '100pt'
 columnseprule: '0pt'
 usedefaultspacing: "yes"
 ---
+
+# Towards Exascale Storage and I/O
 
 Exascale systems that are slated for the end of this decade will 
 include up to a million of compute nodes running about a billion 
@@ -26,7 +28,7 @@ architectures being explored, _I/O Staging_ proposes the designation
 of a portion of the high-end nodes to manage I/O 
 [@lofstead_adaptable_2009 ; @liu_role_2012].
 
-![evo6]\ 
+![ff]\ 
 
 # The Problem
 
@@ -40,23 +42,31 @@ possible in order to minimize the impact on production codes.
 
 ![posix]\ 
 
+As we move towards the exascale goal, this way of interfacing with 
+storage becomes more of an obstacle. Many features provided by 
+distributed file systems are hidden by the POSIX layer and in many 
+cases have to be replicated by existing middleware. If these were 
+visible to the applications, and if applications were able to have 
+full control of them, domain knowledge that is available at the 
+application level could be used to execute storage operations 
+efficiently.
+
 # DOE Fast Forward I/O and Storage
 
-As we move towards the exascale goal, this way of interfacing with 
-storage becomes more of an obstacle. Many features provided by the 
-stack are hidden by the middleware/POSIX layers. If these were visible 
-to the applications, and if the applications were able to control how 
-the underlying layers behave, they would benefit greatly since the 
-domain knowledge that is available at the application level could be 
-used to execute storage operations efficiently. The Fast Forward 
-Storage I/O project [@intel_corporation_milestone_2012] is aimed at 
-merging the features of existing middleware into a next-generation 
-parallel file system stack.
+The Fast Forward Storage I/O project 
+[@intel_corporation_milestone_2012] is aimed at merging the features 
+of existing middleware into a next-generation parallel file system 
+stack. Applications or data format libraries interface against the I/O 
+Dispatcher (IOD) interface, which semantically manages the staging 
+area and interfaces directly with the distributed file system, without 
+using the POSIX interface.
 
-![ff]\ 
+![iod-as-replacement]\ 
 
 
-# I/O Dispatcher
+# I/O Dispatcher Interface
+
+The interface exposes many features.
 
 ## Object-based
 
@@ -73,6 +83,8 @@ parallel file system stack.
 
 The analysis is now better :)
 
+We can apply many proven techniques from other domains (big data)
+
 ![ff]\ 
 
 ## Flow
@@ -86,7 +98,6 @@ The analysis is now better :)
  1. Master receives task
  2. Plans execution based on metadata
  3. Executes best plan
-
 
 # Use Case
 
@@ -132,6 +143,6 @@ include-after: |
   [hdf]: images/logos/hdf
 ---
 
-[posix]: images/labnotebook/2013-10-22-posix-limits
-[evo6]: images/labnotebook/2013-10-22-evo6
-[ff]: images/labnotebook/2013-10-22-ff
+[posix]: images/labnotebook/2013-10-22-posix-barrier
+[ff]: images/labnotebook/2013-10-22-exa-posix-highlight
+[iod-as-replacement]: images/labnotebook/2013-10-22-iod-as-replacement
