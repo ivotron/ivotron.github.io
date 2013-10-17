@@ -14,6 +14,7 @@ tags:
   - hdf5
   - ff
   - slides
+latex-engine: xelatex
 template: a0poster
 papersize: a0b
 columns: 4
