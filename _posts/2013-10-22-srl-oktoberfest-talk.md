@@ -15,8 +15,9 @@ tags:
   - ff
   - slides
 # following are beamer-specific
+out-type: beamer
 template: 'extended'
-classoption: "notes=show"
+#classoption: "notes=show"
 colortheme: "dove"
 fontsize: 12pt
 sansfont: 'PT Sans'

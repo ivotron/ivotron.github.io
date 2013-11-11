@@ -3,17 +3,18 @@ layout: post
 title: 'A Framework for Exascale Analysis Shipping'
 category: labnotebook
 author:
-  - names: "Ivo Jimenez, Carlos Maltzahn"
+  - name: "Ivo Jimenez, Carlos Maltzahn"
     affiliation: UCSC
-  - names: "Jerome Soumagne, Ruth Aydt, Quincey Koziol"
+  - name: "Jerome Soumagne, Ruth Aydt, Quincey Koziol"
     affiliation: HDF Group
-  - names: "Jay Lofstead"
+  - name: "Jay Lofstead"
     affiliation: Sandia National Labs
 tags:
   - srl
   - hdf5
   - ff
-  - slides
+  - poster
+out-type: pdf
 latex-engine: xelatex
 template: a0poster
 papersize: a0b

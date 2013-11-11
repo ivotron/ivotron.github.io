@@ -1,2 +1,2 @@
 main:
-	pandocwrapper --variable=output-type:beam ${FILENAME}
+	pandocwrapper --variable=output-type:pdf ${FILENAME}
