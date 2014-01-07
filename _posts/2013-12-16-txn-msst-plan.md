@@ -35,10 +35,12 @@ papers/documentation.
 ------
 
 #5 is something we didn't discuss but I'd like to suggest it as part 
-of the list. One option is to assume extreme asynchrony and leave 
+of the list. One option is to assume complete asynchrony and leave 
 every rank continue regardless of where the others are [^note]. This 
-might be too disordered. We can potentially do better if we take into 
-account the fact that we interact with an object-based API [^objects].
+might be too extreme, or not. This essentially corresponds to the 
+multi-leader approach approach of FastForward. We can potentially do 
+better if we take into account the fact that we interact with an 
+object-based API [^objects].
 
 [^note]: in terms of I/O, of course; apps might need to synchronize 
 but that's not our business.
@@ -55,7 +57,7 @@ to the extreme) if we assume that coordination should be required
 **only** on shared objects. For example, if 4 ranks (out of 1024) are 
 writing to an array's shard, they should be the ones that are 
 coordinating. For K-V pairs, there's no coordination required unless 
-more than one rank writes to the same one.
+more than one rank writes to the same key.
 
 Now, if we operate like the above, that means that there's never a 
 point in time where the synchronization needs to be global, unless all 
@@ -64,20 +66,27 @@ should be resharded accordingly.
 
 The question now is: how do we determine that a higher-level object 
 (eg. a container of objects) consisting of many objects is at a given 
-version? For example, for 1024 array shards, how do we know that the 
-multidimensional array that those 1024 arrays correspond to are 
-**all** at a given version x? We have at least three alternatives:
+version/transaction? For example, for 1024 array shards, how do we 
+know that the multidimensional array that those 1024 arrays correspond 
+to are **all** at a given version x? We have at least three 
+alternatives:
 
-  1. create a global index that determines when a given container is 
-     at version x. As soon as an object is finished being written to, 
-     an entry in the index is added.
-  2. defer this to read-time: check if all the requested objects are 
-     at version-x. this is similar to fsync and will potentially cause 
-     bottlenecks.
+  1. defer this entirely to read-time: check if all the requested 
+     objects are at version-x. this is similar to fsync and will 
+     potentially cause bottlenecks.
+  2. create a global index (eg. a spanning tree) that determines when 
+     a given container is at version x. As soon as an object is 
+     finished being written to, an entry in the index is added. When 
+     someone queries for the status of the transaction, we start from 
+     the leaves up in order to determine transaction status.
   3. assume the app knows what it's doing and try to read version x 
      for the given object. If it doesn't exist, return an error 
-     immediately.
-  4. wait for the appearance of the requested version.
+     immediately (this won't work in an async scenario since the 
+     operations might be still in flight).
+  4. wait for the appearance of the requested version, which would 
+     work for async backends, with the problem that we might wait for 
+     a long time.
+  5. use ref-counting on a per-object basis
 
 A possible optimization for (3) and (4) is to check if the version is 
 being written at all (if a txn x has been opened) and fail immediately 
@@ -90,11 +99,29 @@ also be related work (the Pyramid arraystore, or SciDB's versioning)
 might have info on this hierarchical (objects within objects, all of 
 them part of the same version) way of determining versions.
 
-**note2**: another way of approaching this is to have distinct version 
-ids for each rank, and then obtaining global version by checking if 
-all of them have already been written. The main issue in general is: 
-how do we determine this without centralizing the version management 
-(otherwise we fall into the "POSIX metadata" problem again)
+**note2**: another way of approaching this is to have a "prepare" 
+phase in which we obtain the number of sub-transactions that make up 
+the global transaction and just check for the last one being written. 
+The key here is to assign id's "on the fly". I think this can be 
+reduced to FF's multi-leader approach.
+
+**note3**: another way is to just tell the backend the number of 
+`finish()` calls that will be executed ala FF. In the extreme case, 
+when there's an IO node per rank, this is as extreme as the one 
+described in the first part of this section. When there's, say, CN:ION 
+ratio of 100:1, keeping track of `finish()` invocations becomes 
+similar to #1 from the above list of alternatives.
+
+**note4**: thus, having said the above, there are 3 types of 
+coordination:
+
+  - fully synchronous (as we are doing right now with our ONE_ROUND 
+    txn), that is handled entirely by the clients.
+  - semi-synchronous by coordinating only on shared objects.
+  - fully asynchronous by reference-counting as in FFs, which has more 
+    overhead (there's a last round of "are you done yet?" 
+    communication among the ref_counters).
+  - deferring to read-time to determine when something is done.
 
 -------
 
