@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Plan For
+title: Plan for MSST paper
 category: labnotebook
 tags:
-  - service
-  - sc13
-  - notes
+  - txn
+  - msst
+  - experimental-plan
 ---
 
 On our last meeting we discussed, w.r.t. parameters of the REF_COUNT 
@@ -34,13 +34,14 @@ papers/documentation.
 
 ------
 
-#5 is something we didn't discuss but I'd like to suggest it as part 
-of the list. One option is to assume complete asynchrony and leave 
-every rank continue regardless of where the others are [^note]. This 
-might be too extreme, or not. This essentially corresponds to the 
-multi-leader approach approach of FastForward. We can potentially do 
-better if we take into account the fact that we interact with an 
-object-based API [^objects].
+No. 5 is something we didn't discuss but I'd like to suggest it as 
+part of the list. One option is to assume complete asynchrony and 
+leave every rank continue regardless of where the others are [^note]. 
+This might be too extreme, or not. This essentially corresponds to the 
+multi-leader approach approach of FastForward (reference counting and 
+watching for a transaction to get done in order to mark it as such). 
+We can potentially do better if we take into account the fact that we 
+interact with an object-based API [^objects].
 
 [^note]: in terms of I/O, of course; apps might need to synchronize 
 but that's not our business.
@@ -71,9 +72,9 @@ know that the multidimensional array that those 1024 arrays correspond
 to are **all** at a given version x? We have at least three 
 alternatives:
 
-  1. defer this entirely to read-time: check if all the requested 
-     objects are at version-x. this is similar to fsync and will 
-     potentially cause bottlenecks.
+  1. fsync-like: check sequentially if every node of the storage 
+     system contains objects that are at version-x. this is similar to 
+     fsync and will potentially cause bottlenecks.
   2. create a global index (eg. a spanning tree) that determines when 
      a given container is at version x. As soon as an object is 
      finished being written to, an entry in the index is added. When 
@@ -87,10 +88,18 @@ alternatives:
      work for async backends, with the problem that we might wait for 
      a long time.
   5. use ref-counting on a per-object basis
+  6. create a membership list (nodes in the storage system) by 
+     initially identifying the objects that will be written in a given 
+     transaction and then implement a hierarchical gather on all the 
+     members. This might be similar to 2.
 
 A possible optimization for (3) and (4) is to check if the version is 
 being written at all (if a txn x has been opened) and fail immediately 
-if it isn't.
+if it isn't. An optimization for (6) is to implement a "conditional" 
+gather, in which a global node is designated so that when a member 
+from the gather responds to its leader that it doesn't have the 
+version in question, it also communicates this to the global node, and 
+this in turn replies to the user that is querying for the txn.
 
 **note**: I think I'm hitting something fundamental here. I should 
 give it more thought. This feels a lot like Eric Barton's epochs, but 
@@ -117,11 +126,16 @@ coordination:
 
   - fully synchronous (as we are doing right now with our ONE_ROUND 
     txn), that is handled entirely by the clients.
-  - semi-synchronous by coordinating only on shared objects.
+  - semi-synchronous by coordinating only on shared objects, with many 
+    alternatives to determining whether something has been committed 
+    or not.
   - fully asynchronous by reference-counting as in FFs, which has more 
     overhead (there's a last round of "are you done yet?" 
     communication among the ref_counters).
   - deferring to read-time to determine when something is done.
+
+
+open question: how do we coordinate overlapped writes?
 
 -------
 
