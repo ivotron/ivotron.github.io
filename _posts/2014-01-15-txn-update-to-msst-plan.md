@@ -31,30 +31,25 @@ Components of checkpointing/restart frameworks include:
   * async I/O. SCR does this already
   * optimal checkpointing frequency. Vaidya's "forked checkpoints" 
     accomplish this.
-
-Coordination is usually solved by "barriering" before returning from 
-the `do_checkpoint_here()` call, that is, an `MPI_Barrier()` call is 
-used to sync all nodes and know that a checkpoint has been written.
+  * coordination. is usually solved by "barriering" before returning 
+    from the `do_checkpoint_here()` call, that is, an `MPI_Barrier()` 
+    call is used to sync all nodes and know that a checkpoint has been 
+    written.
 
 I feel that given all of the above, our contribution would be the 
-combination of existing solutions (mpi-level fault detection, async 
-checkpoints and rollback-based recovery) rather than innovating 
-through a new framework. The transactional semantics are certainly 
-more user-friendly, but one could argue that is the same functionality 
+combination of existing solutions rather than innovating through a new 
+framework. The transactional semantics are certainly more 
+user-friendly, but one could argue that is the same functionality 
 under different terminology. It is certainly fun enough to work on, 
-but unfortunately I have to advance by April and I'd like to maximize 
-the chances of publishing something by then
+but unfortunately at the end we have to "publish or perish"
 
 Now, there are a couple of things that are novel but we haven't been 
 focusing on (yet). First, the object-based API. Every existing 
 solution assumes POSIX and thus suffers from the same traditional 
-bottleneck issues. If we assume ADIOS, IOD, RADOS (ceph), etc. we 
-might get to the point where our contribution is significant. But this 
-means that we actually don't have to prototype a new 
-checkpointing-restart framework, instead, we can just grab an existing 
-one and plug it on top of a non-posix API such as IOD. We could take 
-our prototype and use that but it will be limited in terms of 
-functionality.
+bottleneck issues. If we assume IOD, RADOS (ceph), DAOS, etc. thinks 
+become more interesting. But this means that we actually don't have to 
+focus much on the checkpointing-restart capabilities, instead, we can 
+take those for granted and focus on the object-based backend.
 
 The second contribution we could make is in the transparency of the 
 framework. Every framework requires the user to implement recovery 
@@ -65,12 +60,11 @@ exemplified in [this use case I wrote](). I think this approach
 achieves a right balance since minimizes modification of legacy-code 
 modification.
 
-So in summary I propose the following:
+So to summarize I propose the following:
 
-  * take TXN/FTI/SCR and adapt a benchmark (ftest/IOR/FLASH-IO/etc) to 
-    use it, incorporating parameters to control fault-tolerance 
-    aspects.
-  * write a new IOD driver for the benchmark
-  * execute experiments to compare POSIX vs. MPIIO vs. IOD
+  * take TXN and adapt a benchmark (ftest/IOR/FLASH-IO/etc) to use it, 
+    incorporating parameters to control fault-tolerance aspects.
+  * write a new IOD/RADOS driver for the benchmark
+  * use the above as our experimental platform
 
 Any thoughts?
