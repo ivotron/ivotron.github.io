@@ -3,6 +3,7 @@ layout: post
 title: Thesis Project's High-level Rationale (the case for object-based storage in HPC)
 category: labnotebook
 tags:
+  - cephforhpc
   - txn
   - high-level
 ---
@@ -18,7 +19,7 @@ tags:
 
       * analysis/viz runs completely online and analysis/viz output 
         can be accessed directly on the compute nodes. This is 
-        unfeasible because compute nodes are expensive
+        unfeasible because compute resources are expensive
       * there's no way of doing fault-tolerance without spitting all 
         compute output somewhere else (besides compute node's 
         memory/local-disk)
@@ -36,7 +37,7 @@ tags:
       * concurrency access control schemes: locking, false-sharing, 
         etc.
       * high number of metadata operations: metadata servers get 
-        bombarded with open/close/save/etc. operations
+        bombarded/blasted with open/close/save/etc. operations
 
 # a possible solution
 
@@ -130,14 +131,17 @@ we show:
 
  1. are there apps where is impossible to partition the input domain? 
     How common are they? How can concurrency access coordination be 
-    minimized in these scenarios?
+    minimized in these scenarios? Some examples appear in 
+    [@carns_case_2012]
 
  2. are there applications in which there is never the need to 
     synchronize among the ranks (no need for collectives? eg. 
     barriers, broadcasts, scatters, gathers, etc.?). These type of 
-    apps might benefit from async coordination
+    apps will benefit from async coordination. But we need to identify 
+    them and how common they are.
 
  3. an "incremental" alternative that leaves POSIX intact is to 
     combine optimistic concurrency coordination (dynamo-like, 
     compare-and-swap, etc.) with scalable metadata management (giga+, 
-    dynamic sub-tree partitioning, etc.)
+    dynamic sub-tree partitioning, etc.). Mike Sevilla's project is 
+    related to this.
