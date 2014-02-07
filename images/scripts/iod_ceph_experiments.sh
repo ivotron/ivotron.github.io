@@ -5,14 +5,13 @@
 # for a list of dependencies and a description of how this script evolves
 
 # issdm
-mpi="mpirun -f=/users/ivo/hostfile4 -np"
+mpi="mpirun -f=/users/ivo/hostfile32 -np"
 ior="$HOME/ior/src/ior"
-xfers="4096 524288 1048576"
-maxclients=32
+xfers="1m"
+maxclients=256
 i=10
-block_size_factor="1 10 100"
+blocksize="64m"
 container=iod1
-num_checkpoints_before_first_read="10"
 rados="rados"
 user="client.ivo"
 rados_client_flag="-n"
@@ -20,12 +19,11 @@ rados_client_flag="-n"
 # laptop
 #mpi="mpirun -np"
 #ior="$HOME/projects/ior/src/ior"
-#xfers="4096"
+#xfers="4k"
 #maxclients=1
 #i=1
-#block_size_factor="1"
+#blocksize="4k"
 #container="data"
-#num_checkpoints_before_first_read=1
 #rados="$HOME/projects/ceph/src/rados"
 #user=""
 #rados_client_flag=""
@@ -33,7 +31,7 @@ rados_client_flag="-n"
 # common
 
 with_checkpoint=1
-outfile="expout"
+outfile="expout_1m"
 #apis="IOD POSIX"
 apis="IOD"
 
@@ -66,42 +64,35 @@ do
     while [ "$n" -le "$maxclients" ]
     do
 
-      for blocks in `echo $block_size_factor`
-      do
+      runid="f.x-$xfer.c-$n.b-$blocksize.0"
 
-        let b="${xfer} * ${blocks}"
+      date
 
-        runid="p.$xfer.$n.$b.0"
+      echo "executing f.x-$xfer.c-$n.b-$blocksize"
 
-        date
+      retcheck ${mpi} $n ${ior} -a ${api} -w -z    -E -o ${runid} -b ${blocksize} -F -k -e -i${i} -m -t ${xfer} -d 0.1 -O iodcontainer=$container >> $outfile
+      retcheck ${mpi} $n ${ior} -a ${api} -r -z -C    -o ${runid} -b ${blocksize} -F    -e -i${i} -m -t ${xfer} -d 0.1 -O iodcontainer=$container >> $outfile
 
-        echo "executing $runid"
+      if [ "$with_checkpoint" -eq "1" ]
+      then
+        runid="f.x-$xfer.c-$n.b-$b.1"
 
-        retcheck ${mpi} $n ${ior} -a ${api} -w -z    -E -o ${runid} -b ${b} -F -k -e -i${i} -m -t ${xfer} -d 0.1 -O iodcontainer=$container >> $outfile
-        retcheck ${mpi} $n ${ior} -a ${api} -r -z -C    -o ${runid} -b ${b} -F    -e -i${i} -m -t ${xfer} -d 0.1 -O iodcontainer=$container >> $outfile
+        # create as many checkpoints as iterations
+        retcheck ${mpi} $n ${ior} -a ${api} -w -z  -E -o ${runid} -b ${blocksize} -F -k -e -i${i} -m -t ${xfer} -d 0.1 -O iodcontainer=$container -O checkpoint=1 >> $outfile
+        # execute one read test, that accesses the latest checkpoint
+        retcheck ${mpi} $n ${ior} -a ${api} -r -z     -o ${runid} -b ${blocksize} -F -k -e -i 1   -m -t ${xfer} -d 0.1 -O iodcontainer=$container -O checkpoint=1 -O checkpointIdForReads=${i} >> $outfile
 
-        if [ "$with_checkpoint" -eq "1" ]
-        then
-          runid="p.$xfer.$n.$b.1"
+        # remove checkpoints
+        for snap in $(eval echo "{1..$i}")
+        do
+          retcheck $rados $rados_client_flag $user -p $container rmsnap $snap
+        done
 
-          # create as many checkpoints as iterations
-          retcheck ${mpi} $n ${ior} -a ${api} -w -z    -E -o ${runid} -b ${b} -F -k -e -i${num_checkpoints_before_first_read} -m -t ${xfer} -d 0.1 -O iodcontainer=$container -O checkpoint=1 >> $outfile
-          # execute one read test, that accesses the latest checkpoint
-          retcheck ${mpi} $n ${ior} -a ${api} -r -z       -o ${runid} -b ${b} -F -k -e -i 1                                   -m -t ${xfer} -d 0.1 -O iodcontainer=$container -O checkpoint=1 -O checkpointIdForReads=${num_checkpoints_before_first_read} >> $outfile
+        # delete objects that remain at HEAD snapshot (not measured)
+        retcheck ${mpi} $n ${ior} -a ${api} -w     -E -o ${runid} -b 1k           -F    -e -i${i} -m -t 1k      -d 0.1 -O iodcontainer=$container > /dev/null
+      fi
 
-          # remove checkpoints
-          for snap in $(eval echo "{1..$num_checkpoints_before_first_read}")
-          do
-            retcheck $rados $rados_client_flag $user -p $container rmsnap $snap
-          done
-
-          # delete remaining objects (not measured)
-          retcheck ${mpi} $n ${ior} -a ${api} -w    -E -o ${runid} -b 1k -F    -e -i 1 -m -t 1k -d 0.1 -O iodcontainer=$container > /dev/null
-        fi
-
-        date
-
-      done #blocks
+      date
 
       let "n = $n * 2"
 
@@ -110,6 +101,6 @@ do
   done #xfer
 done #api
 
-echo "Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum" > $outfile.csv
+echo "Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum" > $outfile.csv
 sed -ne'/Operation/,/Finished:/p' $outfile | sed -e's/Finished.*//g' | sed -e's/Operation.*//g' | grep 'read*\|write*' >> $outfile.csv
 sed -i -e's/  */\t/g' $outfile.csv

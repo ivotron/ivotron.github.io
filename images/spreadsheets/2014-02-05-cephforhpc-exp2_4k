@@ -1,0 +1,1450 @@
+
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:50:07 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-1.b-256k.0 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:50:07 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-1.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 1 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 262144 bytes
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     1.46       256.00     4.00       0.011900   0.158824   0.000002   0.170730   0   
+write     1.64       256.00     4.00       0.000002   0.152396   0.000002   0.152403   1   
+write     1.73       256.00     4.00       0.000003   0.144480   0.000002   0.144488   2   
+write     1.56       256.00     4.00       0.000002   0.160562   0.000002   0.160570   3   
+write     1.72       256.00     4.00       0.000003   0.145071   0.000002   0.145080   4   
+write     1.63       256.00     4.00       0.000002   0.153169   0.000002   0.153177   5   
+write     1.52       256.00     4.00       0.000003   0.164737   0.000002   0.164746   6   
+write     1.77       256.00     4.00       0.000002   0.141275   0.000002   0.141283   7   
+write     1.66       256.00     4.00       0.000003   0.150772   0.000002   0.150780   8   
+write     1.61       256.00     4.00       0.000003   0.155450   0.000002   0.155458   9   
+
+Max Write: 1.77 MiB/sec (1.86 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write           1.77       1.46       1.63       0.09    0.15387 0 1 1 10 1 0 1 0 0 1 262144 4096 262144 IOD 0
+
+Finished: Thu Feb  6 02:50:08 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:50:08 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -C -o f.x-4k.c-1.b-256k.0 -b 256k -F -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:50:08 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-1.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 1 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 262144 bytes
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      3.64       256.00     4.00       0.011455   0.057194   0.000003   0.068656   0   
+remove    -          -          -          -          -          -          0.001502   0   
+read      4.42       256.00     4.00       0.000002   0.056608   0.000002   0.056616   1   
+remove    -          -          -          -          -          -          0.001388   1   
+read      4.37       256.00     4.00       0.000003   0.057206   0.000002   0.057214   2   
+remove    -          -          -          -          -          -          0.002128   2   
+read      4.40       256.00     4.00       0.000003   0.056758   0.000002   0.056766   3   
+remove    -          -          -          -          -          -          0.001396   3   
+read      4.51       256.00     4.00       0.000002   0.055477   0.000002   0.055485   4   
+remove    -          -          -          -          -          -          0.001542   4   
+read      4.39       256.00     4.00       0.000002   0.056911   0.000002   0.056918   5   
+remove    -          -          -          -          -          -          0.001950   5   
+read      4.14       256.00     4.00       0.000003   0.060352   0.000002   0.060361   6   
+remove    -          -          -          -          -          -          0.001400   6   
+read      4.52       256.00     4.00       0.000002   0.055342   0.000002   0.055350   7   
+remove    -          -          -          -          -          -          0.001541   7   
+read      4.51       256.00     4.00       0.000003   0.055485   0.000002   0.055494   8   
+remove    -          -          -          -          -          -          0.001398   8   
+read      4.43       256.00     4.00       0.000002   0.056480   0.000002   0.056488   9   
+remove    -          -          -          -          -          -          0.002673   9   
+
+Max Read:  4.52 MiB/sec (4.74 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read            4.52       3.64       4.33       0.25    0.05793 0 1 1 10 1 1 1 0 0 1 262144 4096 262144 IOD 0
+
+Finished: Thu Feb  6 02:50:09 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:50:09 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-1.b-.1 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:50:09 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-1.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 1 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 262144 bytes
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     0.186246   256.00     4.00       0.011654   0.153660   1.18       1.34       0   
+write     0.208403   256.00     4.00       0.000003   0.169413   1.03       1.20       1   
+write     0.189577   256.00     4.00       0.000003   0.175692   1.14       1.32       2   
+write     0.199304   256.00     4.00       0.000003   0.161455   1.09       1.25       3   
+write     0.204561   256.00     4.00       0.000003   0.163665   1.06       1.22       4   
+write     0.204704   256.00     4.00       0.000006   0.167181   1.05       1.22       5   
+write     0.194065   256.00     4.00       0.000005   0.173094   1.12       1.29       6   
+write     0.204617   256.00     4.00       0.000007   0.157348   1.06       1.22       7   
+write     0.189427   256.00     4.00       0.000003   0.151456   1.17       1.32       8   
+write     0.188895   256.00     4.00       0.000006   0.174074   1.15       1.32       9   
+
+Max Write: 0.21 MiB/sec (0.22 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write           0.21       0.19       0.20       0.01    1.27117 0 1 1 10 1 0 1 0 0 1 262144 4096 262144 IOD 0
+
+Finished: Thu Feb  6 02:50:22 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:50:22 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -o f.x-4k.c-1.b-.1 -b 256k -F -k -e -i 1 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1 -O checkpointIdForReads=10
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:50:22 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-1.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 1 (1 per node)
+	repetitions        = 1
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 262144 bytes
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      2.93       256.00     4.00       0.011832   0.073607   0.000002   0.085446   0   
+
+Max Read:  2.93 MiB/sec (3.07 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read            2.93       2.93       2.93       0.00    0.08545 0 1 1 1 1 0 1 0 0 1 262144 4096 262144 IOD 0
+
+Finished: Thu Feb  6 02:50:22 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:50:35 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-2.b-256k.0 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:50:35 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-2.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 2 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 524288 bytes
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     1.54       256.00     4.00       0.143976   0.181740   0.007665   0.324891   0   
+write     3.23       256.00     4.00       0.000017   0.154932   0.006115   0.154940   1   
+write     3.19       256.00     4.00       0.000030   0.156514   0.001805   0.156522   2   
+write     2.51       256.00     4.00       0.000031   0.199233   0.000229   0.199241   3   
+write     3.14       256.00     4.00       0.000028   0.159236   0.001227   0.159244   4   
+write     3.26       256.00     4.00       0.000038   0.153225   0.000512   0.153235   5   
+write     3.31       256.00     4.00       0.000034   0.151214   0.001515   0.151221   6   
+write     2.47       256.00     4.00       0.000093   0.202339   0.000068   0.202348   7   
+write     3.14       256.00     4.00       0.000042   0.159026   0.009395   0.159034   8   
+write     3.24       256.00     4.00       0.000092   0.154320   0.000218   0.154329   9   
+
+Max Write: 3.31 MiB/sec (3.47 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write           3.31       1.54       2.90       0.54    0.18150 0 2 1 10 1 0 1 0 0 1 262144 4096 524288 IOD 0
+
+Finished: Thu Feb  6 02:50:37 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:50:38 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -C -o f.x-4k.c-2.b-256k.0 -b 256k -F -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:50:38 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-2.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 2 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 524288 bytes
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      6.54       256.00     4.00       0.011945   0.064954   0.000153   0.076437   0   
+remove    -          -          -          -          -          -          0.003515   0   
+read      7.60       256.00     4.00       0.000033   0.065799   0.008992   0.065808   1   
+remove    -          -          -          -          -          -          0.003070   1   
+read      8.78       256.00     4.00       0.000040   0.056934   0.000132   0.056942   2   
+remove    -          -          -          -          -          -          0.002105   2   
+read      6.79       256.00     4.00       0.000150   0.073576   0.001595   0.073585   3   
+remove    -          -          -          -          -          -          0.004354   3   
+read      7.55       256.00     4.00       0.000024   0.066229   0.008710   0.066238   4   
+remove    -          -          -          -          -          -          0.002928   4   
+read      7.60       256.00     4.00       0.000026   0.065794   0.003815   0.065803   5   
+remove    -          -          -          -          -          -          0.003788   5   
+read      7.75       256.00     4.00       0.000028   0.064544   0.003293   0.064553   6   
+remove    -          -          -          -          -          -          0.002073   6   
+read      7.71       256.00     4.00       0.000150   0.064829   0.001489   0.064839   7   
+remove    -          -          -          -          -          -          0.003773   7   
+read      7.40       256.00     4.00       0.000030   0.067524   0.010591   0.067533   8   
+remove    -          -          -          -          -          -          0.002979   8   
+read      8.98       256.00     4.00       0.000145   0.055655   0.000023   0.055663   9   
+remove    -          -          -          -          -          -          0.002840   9   
+
+Max Read:  8.98 MiB/sec (9.42 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read            8.98       6.54       7.67       0.71    0.06574 0 2 1 10 1 1 1 0 0 1 262144 4096 524288 IOD 0
+
+Finished: Thu Feb  6 02:50:39 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:50:39 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-2.b-.1 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:50:39 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-2.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 2 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 524288 bytes
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     0.469662   256.00     4.00       0.012117   0.159814   0.905228   1.06       0   
+write     0.408926   256.00     4.00       0.000015   0.180315   1.05       1.22       1   
+write     0.387077   256.00     4.00       0.000011   0.188238   1.13       1.29       2   
+write     0.366880   256.00     4.00       0.000006   0.159187   1.21       1.36       3   
+write     0.304445   256.00     4.00       0.000009   0.184789   1.46       1.64       4   
+write     0.389153   256.00     4.00       0.000012   0.212317   1.08       1.28       5   
+write     0.388012   256.00     4.00       0.000009   0.179666   1.13       1.29       6   
+write     0.432858   256.00     4.00       0.000008   0.166344   0.988784   1.16       7   
+write     0.420347   256.00     4.00       0.000347   0.187001   1.00       1.19       8   
+write     0.343527   256.00     4.00       0.000015   0.180344   1.29       1.46       9   
+
+Max Write: 0.47 MiB/sec (0.49 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write           0.47       0.30       0.39       0.04    1.29578 0 2 1 10 1 0 1 0 0 1 262144 4096 524288 IOD 0
+
+Finished: Thu Feb  6 02:50:52 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:50:53 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -o f.x-4k.c-2.b-.1 -b 256k -F -k -e -i 1 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1 -O checkpointIdForReads=10
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:50:53 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-2.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 2 (1 per node)
+	repetitions        = 1
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 524288 bytes
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      6.35       256.00     4.00       0.012126   0.067174   0.008605   0.078742   0   
+
+Max Read:  6.35 MiB/sec (6.66 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read            6.35       6.35       6.35       0.00    0.07874 0 2 1 1 1 0 1 0 0 1 262144 4096 524288 IOD 0
+
+Finished: Thu Feb  6 02:50:53 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:51:06 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-4.b-256k.0 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:51:06 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-4.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 4 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 1 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     5.70       256.00     4.00       0.012500   0.163968   0.013791   0.175479   0   
+write     5.38       256.00     4.00       0.000028   0.185768   0.027199   0.185777   1   
+write     5.16       256.00     4.00       0.000023   0.193822   0.040175   0.193831   2   
+write     4.81       256.00     4.00       0.000018   0.207715   0.056190   0.207724   3   
+write     4.51       256.00     4.00       0.000038   0.221740   0.069913   0.221748   4   
+write     6.38       256.00     4.00       0.000033   0.156803   0.005711   0.156812   5   
+write     6.00       256.00     4.00       0.000042   0.166603   0.011347   0.166614   6   
+write     5.10       256.00     4.00       0.000044   0.196098   0.009072   0.196109   7   
+write     5.24       256.00     4.00       0.000129   0.190949   0.040956   0.190958   8   
+write     6.29       256.00     4.00       0.000133   0.158891   0.002492   0.158902   9   
+
+Max Write: 6.38 MiB/sec (6.69 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write           6.38       4.51       5.46       0.59    0.18540 0 4 1 10 1 0 1 0 0 1 262144 4096 1048576 IOD 0
+
+Finished: Thu Feb  6 02:51:08 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:51:09 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -C -o f.x-4k.c-4.b-256k.0 -b 256k -F -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:51:09 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-4.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 4 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 1 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      12.72      256.00     4.00       0.012829   0.066962   0.008881   0.078613   0   
+remove    -          -          -          -          -          -          0.002744   0   
+read      14.89      256.00     4.00       0.000132   0.067136   0.010047   0.067143   1   
+remove    -          -          -          -          -          -          0.002955   1   
+read      14.35      256.00     4.00       0.000027   0.069691   0.011863   0.069701   2   
+remove    -          -          -          -          -          -          0.002804   2   
+read      14.87      256.00     4.00       0.000127   0.067252   0.009736   0.067262   3   
+remove    -          -          -          -          -          -          0.003526   3   
+read      13.10      256.00     4.00       0.000123   0.076313   0.011812   0.076322   4   
+remove    -          -          -          -          -          -          0.003627   4   
+read      11.72      256.00     4.00       0.000126   0.085278   0.027317   0.085288   5   
+remove    -          -          -          -          -          -          0.003652   5   
+read      15.23      256.00     4.00       0.000124   0.065667   0.010004   0.065679   6   
+remove    -          -          -          -          -          -          0.002703   6   
+read      14.89      256.00     4.00       0.000124   0.067128   0.005166   0.067137   7   
+remove    -          -          -          -          -          -          0.003370   7   
+read      15.12      256.00     4.00       0.000123   0.066123   0.007314   0.066131   8   
+remove    -          -          -          -          -          -          0.003383   8   
+read      15.32      256.00     4.00       0.000126   0.065244   0.008454   0.065253   9   
+remove    -          -          -          -          -          -          0.002360   9   
+
+Max Read:  15.32 MiB/sec (16.07 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           15.32      11.72      14.22       1.19    0.07085 0 4 1 10 1 1 1 0 0 1 262144 4096 1048576 IOD 0
+
+Finished: Thu Feb  6 02:51:09 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:51:10 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-4.b-.1 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:51:10 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-4.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 4 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 1 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     1.41       256.00     4.00       0.012464   0.162251   0.541431   0.706994   0   
+write     0.790461   256.00     4.00       0.000123   0.211967   1.11       1.27       1   
+write     0.818690   256.00     4.00       0.000125   0.202894   1.07       1.22       2   
+write     0.796129   256.00     4.00       0.000462   0.187774   1.09       1.26       3   
+write     0.800896   256.00     4.00       0.000182   0.212578   1.08       1.25       4   
+write     0.827370   256.00     4.00       0.000129   0.176594   1.06       1.21       5   
+write     0.782846   256.00     4.00       0.000095   0.205222   1.09       1.28       6   
+write     0.779327   256.00     4.00       0.000152   0.208762   1.13       1.28       7   
+write     0.772579   256.00     4.00       0.000234   0.157551   1.15       1.29       8   
+write     0.790496   256.00     4.00       0.000158   0.222074   1.11       1.27       9   
+
+Max Write: 1.41 MiB/sec (1.48 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write           1.41       0.77       0.86       0.19    1.20268 0 4 1 10 1 0 1 0 0 1 262144 4096 1048576 IOD 0
+
+Finished: Thu Feb  6 02:51:22 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:51:23 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -o f.x-4k.c-4.b-.1 -b 256k -F -k -e -i 1 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1 -O checkpointIdForReads=10
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:51:23 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-4.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 4 (1 per node)
+	repetitions        = 1
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 1 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      12.30      256.00     4.00       0.013287   0.069550   0.009591   0.081316   0   
+
+Max Read:  12.30 MiB/sec (12.90 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           12.30      12.30      12.30       0.00    0.08132 0 4 1 1 1 0 1 0 0 1 262144 4096 1048576 IOD 0
+
+Finished: Thu Feb  6 02:51:23 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:51:37 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-8.b-256k.0 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:51:37 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-8.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 8 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 2 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     7.26       256.00     4.00       0.021504   0.261579   0.108942   0.275524   0   
+write     8.02       256.00     4.00       0.000563   0.249507   0.096746   0.249516   1   
+write     9.74       256.00     4.00       0.006031   0.205292   0.053045   0.205300   2   
+write     9.88       256.00     4.00       0.000462   0.202420   0.050880   0.202431   3   
+write     8.59       256.00     4.00       0.000469   0.232690   0.080048   0.232699   4   
+write     6.56       256.00     4.00       0.000483   0.304773   0.150641   0.304785   5   
+write     8.77       256.00     4.00       0.000601   0.227949   0.078329   0.227959   6   
+write     8.13       256.00     4.00       0.000603   0.246039   0.102152   0.246048   7   
+write     6.31       256.00     4.00       0.000804   0.316915   0.162117   0.316923   8   
+write     4.17       256.00     4.00       0.000568   0.479236   0.327302   0.479244   9   
+
+Max Write: 9.88 MiB/sec (10.36 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write           9.88       4.17       7.74       1.64    0.27404 0 8 1 10 1 0 1 0 0 1 262144 4096 2097152 IOD 0
+
+Finished: Thu Feb  6 02:51:39 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:51:40 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -C -o f.x-4k.c-8.b-256k.0 -b 256k -F -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:51:40 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-8.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 8 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 2 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      22.25      256.00     4.00       0.017691   0.076208   0.014128   0.089877   0   
+remove    -          -          -          -          -          -          0.004012   0   
+read      27.61      256.00     4.00       0.000581   0.072417   0.011932   0.072427   1   
+remove    -          -          -          -          -          -          0.005534   1   
+read      24.69      256.00     4.00       0.000586   0.080983   0.021628   0.080993   2   
+remove    -          -          -          -          -          -          0.007692   2   
+read      28.69      256.00     4.00       0.002125   0.069710   0.007589   0.069718   3   
+remove    -          -          -          -          -          -          0.003684   3   
+read      26.72      256.00     4.00       0.000582   0.074843   0.016342   0.074852   4   
+remove    -          -          -          -          -          -          0.003205   4   
+read      20.60      256.00     4.00       0.000584   0.097063   0.032014   0.097074   5   
+remove    -          -          -          -          -          -          0.006252   5   
+read      26.88      256.00     4.00       0.000592   0.074382   0.009867   0.074395   6   
+remove    -          -          -          -          -          -          0.005266   6   
+read      26.98      256.00     4.00       0.000453   0.074121   0.016495   0.074132   7   
+remove    -          -          -          -          -          -          0.007094   7   
+read      23.28      256.00     4.00       0.000600   0.085891   0.029404   0.085901   8   
+remove    -          -          -          -          -          -          0.005908   8   
+read      29.29      256.00     4.00       0.000548   0.068268   0.012437   0.068276   9   
+remove    -          -          -          -          -          -          0.003476   9   
+
+Max Read:  29.29 MiB/sec (30.72 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           29.29      20.60      25.70       2.73    0.07876 0 8 1 10 1 1 1 0 0 1 262144 4096 2097152 IOD 0
+
+Finished: Thu Feb  6 02:51:41 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:51:42 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-8.b-.1 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:51:42 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-8.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 8 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 2 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     1.41       256.00     4.00       0.018222   0.278474   1.25       1.42       0   
+write     1.53       256.00     4.00       0.000395   0.278299   1.12       1.31       1   
+write     1.68       256.00     4.00       0.000548   0.232209   1.02       1.19       2   
+write     1.66       256.00     4.00       0.000522   0.248545   1.06       1.20       3   
+write     1.12       256.00     4.00       0.000362   0.237929   1.59       1.79       4   
+write     1.51       256.00     4.00       0.000406   0.229976   1.18       1.32       5   
+write     1.73       256.00     4.00       0.000415   0.223366   0.996906   1.16       6   
+write     1.59       256.00     4.00       0.004950   0.289350   1.10       1.26       7   
+write     1.59       256.00     4.00       0.000390   0.267366   1.11       1.26       8   
+write     1.41       256.00     4.00       0.000501   0.211912   1.27       1.42       9   
+
+Max Write: 1.73 MiB/sec (1.81 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write           1.73       1.12       1.52       0.17    1.33207 0 8 1 10 1 0 1 0 0 1 262144 4096 2097152 IOD 0
+
+Finished: Thu Feb  6 02:51:55 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:51:56 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -o f.x-4k.c-8.b-.1 -b 256k -F -k -e -i 1 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1 -O checkpointIdForReads=10
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:51:56 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-8.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 8 (1 per node)
+	repetitions        = 1
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 2 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      19.05      256.00     4.00       0.018079   0.091397   0.023486   0.104965   0   
+
+Max Read:  19.05 MiB/sec (19.98 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           19.05      19.05      19.05       0.00    0.10496 0 8 1 1 1 0 1 0 0 1 262144 4096 2097152 IOD 0
+
+Finished: Thu Feb  6 02:51:56 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:52:10 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-16.b-256k.0 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:52:10 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-16.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 16 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 4 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     12.86      256.00     4.00       0.027347   0.292421   0.098906   0.311041   0   
+write     11.02      256.00     4.00       0.004261   0.362891   0.210273   0.362902   1   
+write     14.46      256.00     4.00       0.000929   0.276522   0.122419   0.276531   2   
+write     12.27      256.00     4.00       0.000949   0.326091   0.176090   0.326103   3   
+write     12.08      256.00     4.00       0.001630   0.331064   0.162526   0.331076   4   
+write     13.58      256.00     4.00       0.001022   0.294522   0.116203   0.294534   5   
+write     11.94      256.00     4.00       0.000986   0.334899   0.159517   0.334910   6   
+write     12.43      256.00     4.00       0.000893   0.321860   0.168906   0.321873   7   
+write     14.67      256.00     4.00       0.000859   0.272586   0.112824   0.272594   8   
+write     13.78      256.00     4.00       0.000935   0.290315   0.126925   0.290325   9   
+
+Max Write: 14.67 MiB/sec (15.39 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write          14.67      11.02      12.91       1.12    0.31219 0 16 1 10 1 0 1 0 0 1 262144 4096 4194304 IOD 0
+
+Finished: Thu Feb  6 02:52:14 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:52:14 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -C -o f.x-4k.c-16.b-256k.0 -b 256k -F -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:52:14 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-16.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 16 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 4 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      38.00      256.00     4.00       0.025673   0.086878   0.017326   0.105255   0   
+remove    -          -          -          -          -          -          0.006202   0   
+read      36.72      256.00     4.00       0.000964   0.108911   0.046826   0.108921   1   
+remove    -          -          -          -          -          -          0.009121   1   
+read      46.19      256.00     4.00       0.000978   0.086593   0.020852   0.086602   2   
+remove    -          -          -          -          -          -          0.006316   2   
+read      43.46      256.00     4.00       0.003581   0.092038   0.031251   0.092047   3   
+remove    -          -          -          -          -          -          0.007978   3   
+read      33.77      256.00     4.00       0.002445   0.118432   0.051923   0.118441   4   
+remove    -          -          -          -          -          -          0.007498   4   
+read      39.89      256.00     4.00       0.000960   0.100274   0.041965   0.100287   5   
+remove    -          -          -          -          -          -          0.010077   5   
+read      33.70      256.00     4.00       0.000953   0.118673   0.052673   0.118682   6   
+remove    -          -          -          -          -          -          0.009823   6   
+read      32.37      256.00     4.00       0.000959   0.123568   0.063663   0.123577   7   
+remove    -          -          -          -          -          -          0.007225   7   
+read      52.75      256.00     4.00       0.000682   0.075818   0.010309   0.075827   8   
+remove    -          -          -          -          -          -          0.008524   8   
+read      39.74      256.00     4.00       0.000708   0.100657   0.037117   0.100666   9   
+remove    -          -          -          -          -          -          0.006812   9   
+
+Max Read:  52.75 MiB/sec (55.31 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           52.75      32.37      39.66       6.03    0.10303 0 16 1 10 1 1 1 0 0 1 262144 4096 4194304 IOD 0
+
+Finished: Thu Feb  6 02:52:15 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:52:16 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-16.b-.1 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:52:16 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-16.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 16 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 4 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     5.18       256.00     4.00       0.025256   0.302741   0.595620   0.771933   0   
+write     3.12       256.00     4.00       0.000706   0.304359   1.13       1.28       1   
+write     2.20       256.00     4.00       0.000700   0.321884   1.63       1.82       2   
+write     2.68       256.00     4.00       0.000818   0.342629   1.31       1.49       3   
+write     2.37       256.00     4.00       0.000721   0.296697   1.53       1.69       4   
+write     1.75       256.00     4.00       0.004625   1.46       2.10       2.28       5   
+write     3.30       256.00     4.00       0.000652   0.316810   1.05       1.21       6   
+write     2.98       256.00     4.00       0.000545   0.283362   1.15       1.34       7   
+write     3.07       256.00     4.00       0.000534   0.264599   1.13       1.30       8   
+write     3.18       256.00     4.00       0.000608   0.323065   1.11       1.26       9   
+
+Max Write: 5.18 MiB/sec (5.43 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write           5.18       1.75       2.98       0.87    1.44441 0 16 1 10 1 0 1 0 0 1 262144 4096 4194304 IOD 0
+
+Finished: Thu Feb  6 02:52:31 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:52:32 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -o f.x-4k.c-16.b-.1 -b 256k -F -k -e -i 1 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1 -O checkpointIdForReads=10
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:52:32 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-16.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 16 (1 per node)
+	repetitions        = 1
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 4 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      29.65      256.00     4.00       0.025113   0.119257   0.054578   0.134887   0   
+
+Max Read:  29.65 MiB/sec (31.09 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           29.65      29.65      29.65       0.00    0.13489 0 16 1 1 1 0 1 0 0 1 262144 4096 4194304 IOD 0
+
+Finished: Thu Feb  6 02:52:32 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:52:46 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-32.b-256k.0 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:52:46 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-32.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 32 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 8 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     18.39      256.00     4.00       0.054200   0.398149   0.213461   0.435008   0   
+write     16.63      256.00     4.00       0.010833   0.481137   0.309548   0.481147   1   
+write     19.38      256.00     4.00       0.013610   0.412782   0.233051   0.412792   2   
+write     21.08      256.00     4.00       0.011950   0.379422   0.196522   0.379432   3   
+write     18.49      256.00     4.00       0.012721   0.432755   0.257790   0.432767   4   
+write     20.61      256.00     4.00       0.010676   0.388077   0.185585   0.388090   5   
+write     19.86      256.00     4.00       0.010068   0.402886   0.238971   0.402897   6   
+write     16.18      256.00     4.00       0.012228   0.494433   0.332953   0.494443   7   
+write     15.85      256.00     4.00       0.012838   0.504772   0.317409   0.504785   8   
+write     19.51      256.00     4.00       0.010919   0.410053   0.238542   0.410064   9   
+
+Max Write: 21.08 MiB/sec (22.11 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write          21.08      15.85      18.60       1.75    0.43414 0 32 1 10 1 0 1 0 0 1 262144 4096 8388608 IOD 0
+
+Finished: Thu Feb  6 02:52:50 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:52:51 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -C -o f.x-4k.c-32.b-256k.0 -b 256k -F -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:52:51 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-32.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 32 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 8 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      44.08      256.00     4.00       0.048171   0.149228   0.072821   0.181495   0   
+remove    -          -          -          -          -          -          0.011393   0   
+read      45.60      256.00     4.00       0.005868   0.175445   0.109770   0.175455   1   
+remove    -          -          -          -          -          -          0.008119   1   
+read      55.41      256.00     4.00       0.003499   0.144376   0.076682   0.144385   2   
+remove    -          -          -          -          -          -          0.010428   2   
+read      48.30      256.00     4.00       0.010353   0.165623   0.098082   0.165631   3   
+remove    -          -          -          -          -          -          0.013871   3   
+read      61.11      256.00     4.00       0.008252   0.130900   0.057045   0.130908   4   
+remove    -          -          -          -          -          -          0.008742   4   
+read      61.60      256.00     4.00       0.008330   0.129862   0.061358   0.129870   5   
+remove    -          -          -          -          -          -          0.011649   5   
+read      52.88      256.00     4.00       0.005176   0.151277   0.081546   0.151287   6   
+remove    -          -          -          -          -          -          0.014323   6   
+read      43.12      256.00     4.00       0.005154   0.185525   0.122252   0.185534   7   
+remove    -          -          -          -          -          -          0.009526   7   
+read      42.64      256.00     4.00       0.005311   0.187587   0.124671   0.187597   8   
+remove    -          -          -          -          -          -          0.008973   8   
+read      45.78      256.00     4.00       0.010239   0.174738   0.104172   0.174748   9   
+remove    -          -          -          -          -          -          0.013888   9   
+
+Max Read:  61.60 MiB/sec (64.59 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           61.60      42.64      50.05       6.87    0.16269 0 32 1 10 1 1 1 0 0 1 262144 4096 8388608 IOD 0
+
+Finished: Thu Feb  6 02:52:53 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:52:53 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-32.b-.1 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:52:53 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-32.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 32 (1 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 8 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     4.62       256.00     4.00       0.050330   0.565909   1.50       1.73       0   
+write     6.76       256.00     4.00       0.008884   0.394841   0.992858   1.18       1   
+write     6.38       256.00     4.00       0.012289   0.419386   1.07       1.25       2   
+write     6.33       256.00     4.00       0.010614   0.406009   1.07       1.26       3   
+write     6.39       256.00     4.00       0.008929   0.386557   1.01       1.25       4   
+write     6.24       256.00     4.00       0.014144   0.539615   1.11       1.28       5   
+write     6.15       256.00     4.00       0.012425   0.376377   1.11       1.30       6   
+write     6.36       256.00     4.00       0.015052   0.405015   1.07       1.26       7   
+write     6.67       256.00     4.00       0.009025   0.423705   1.02       1.20       8   
+write     6.72       256.00     4.00       0.012580   0.371021   1.01       1.19       9   
+
+Max Write: 6.76 MiB/sec (7.09 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write           6.76       4.62       6.26       0.58    1.29142 0 32 1 10 1 0 1 0 0 1 262144 4096 8388608 IOD 0
+
+Finished: Thu Feb  6 02:53:07 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:53:07 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -o f.x-4k.c-32.b-.1 -b 256k -F -k -e -i 1 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1 -O checkpointIdForReads=10
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:53:07 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-32.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 32 (1 per node)
+	repetitions        = 1
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 8 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      32.16      256.00     4.00       0.042363   0.218698   0.143645   0.248731   0   
+
+Max Read:  32.16 MiB/sec (33.73 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           32.16      32.16      32.16       0.00    0.24873 0 32 1 1 1 0 1 0 0 1 262144 4096 8388608 IOD 0
+
+Finished: Thu Feb  6 02:53:08 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:53:23 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-64.b-256k.0 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:53:23 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-64.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 64 (2 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 16 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     15.85      256.00     4.00       0.226024   0.797534   0.537186   1.01       0   
+write     19.04      256.00     4.00       0.019377   0.840122   0.535613   0.840135   1   
+write     26.53      256.00     4.00       0.011846   0.603184   0.302264   0.603198   2   
+write     25.82      256.00     4.00       0.014879   0.619574   0.306712   0.619586   3   
+write     28.16      256.00     4.00       0.010591   0.568160   0.328245   0.568172   4   
+write     22.88      256.00     4.00       0.010574   0.699259   0.517602   0.699272   5   
+write     26.05      256.00     4.00       0.010201   0.614219   0.311771   0.614235   6   
+write     21.91      256.00     4.00       0.010004   0.730393   0.499008   0.730406   7   
+write     25.82      256.00     4.00       0.015887   0.619774   0.311140   0.619788   8   
+write     23.54      256.00     4.00       0.013971   0.679631   0.420104   0.679642   9   
+
+Max Write: 28.16 MiB/sec (29.53 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write          28.16      15.85      23.56       3.60    0.69842 0 64 2 10 1 0 1 0 0 1 262144 4096 16777216 IOD 0
+
+Finished: Thu Feb  6 02:53:30 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:53:31 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -C -o f.x-4k.c-64.b-256k.0 -b 256k -F -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:53:31 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-64.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 64 (2 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 16 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      50.92      256.00     4.00       0.089459   0.251880   0.164676   0.314211   0   
+remove    -          -          -          -          -          -          0.016886   0   
+read      74.43      256.00     4.00       0.011552   0.214953   0.124493   0.214965   1   
+remove    -          -          -          -          -          -          0.013943   1   
+read      64.11      256.00     4.00       0.014469   0.249548   0.165727   0.249559   2   
+remove    -          -          -          -          -          -          0.016554   2   
+read      72.35      256.00     4.00       0.014952   0.221124   0.129562   0.221137   3   
+remove    -          -          -          -          -          -          0.015715   3   
+read      74.77      256.00     4.00       0.006769   0.213987   0.127759   0.214000   4   
+remove    -          -          -          -          -          -          0.015705   4   
+read      60.62      256.00     4.00       0.014339   0.263933   0.180474   0.263944   5   
+remove    -          -          -          -          -          -          0.018848   5   
+read      67.74      256.00     4.00       0.008190   0.236173   0.159318   0.236186   6   
+remove    -          -          -          -          -          -          0.015812   6   
+read      70.49      256.00     4.00       0.014868   0.226982   0.142201   0.226995   7   
+remove    -          -          -          -          -          -          0.013550   7   
+read      66.23      256.00     4.00       0.013754   0.241568   0.165138   0.241581   8   
+remove    -          -          -          -          -          -          0.015575   8   
+read      67.74      256.00     4.00       0.009880   0.236189   0.160451   0.236199   9   
+remove    -          -          -          -          -          -          0.019743   9   
+
+Max Read:  74.77 MiB/sec (78.40 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           74.77      50.92      66.94       6.82    0.24188 0 64 2 10 1 1 1 0 0 1 262144 4096 16777216 IOD 0
+
+Finished: Thu Feb  6 02:53:34 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:53:34 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-64.b-.1 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:53:34 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-64.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 64 (2 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 16 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     8.47       256.00     4.00       0.085313   0.565006   1.54       1.89       0   
+write     12.41      256.00     4.00       0.006586   0.541903   1.00       1.29       1   
+write     12.56      256.00     4.00       0.006557   0.784854   0.926361   1.27       2   
+write     11.72      256.00     4.00       0.003607   0.729619   1.12       1.37       3   
+write     12.74      256.00     4.00       0.008950   0.593563   0.992862   1.26       4   
+write     12.06      256.00     4.00       0.007525   0.568597   1.06       1.33       5   
+write     12.91      256.00     4.00       0.007106   0.621569   0.949002   1.24       6   
+write     12.52      256.00     4.00       0.006809   0.663177   0.960964   1.28       7   
+write     13.38      256.00     4.00       0.013168   0.520196   0.846910   1.20       8   
+write     6.77       256.00     4.00       0.006575   1.43       2.12       2.36       9   
+
+Max Write: 13.38 MiB/sec (14.03 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write          13.38       6.77      11.55       2.05    1.44780 0 64 2 10 1 0 1 0 0 1 262144 4096 16777216 IOD 0
+
+Finished: Thu Feb  6 02:53:49 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:53:50 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -o f.x-4k.c-64.b-.1 -b 256k -F -k -e -i 1 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1 -O checkpointIdForReads=10
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:53:50 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-64.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 64 (2 per node)
+	repetitions        = 1
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 16 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      50.64      256.00     4.00       0.123801   0.209272   0.104701   0.315950   0   
+
+Max Read:  50.64 MiB/sec (53.10 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           50.64      50.64      50.64       0.00    0.31595 0 64 2 1 1 0 1 0 0 1 262144 4096 16777216 IOD 0
+
+Finished: Thu Feb  6 02:53:51 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:54:06 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-128.b-256k.0 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:54:06 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-128.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 128 (4 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 32 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     20.19      256.00     4.00       0.167711   1.47       0.976007   1.58       0   
+write     25.77      256.00     4.00       0.012707   1.24       0.853828   1.24       1   
+write     11.77      256.00     4.00       0.016902   2.72       2.19       2.72       2   
+write     30.02      256.00     4.00       0.013061   1.07       0.652784   1.07       3   
+write     30.99      256.00     4.00       0.010306   1.03       0.412039   1.03       4   
+write     25.00      256.00     4.00       0.008887   1.28       0.751076   1.28       5   
+write     10.43      256.00     4.00       0.010016   3.07       2.53       3.07       6   
+write     20.23      256.00     4.00       0.011846   1.58       1.05       1.58       7   
+write     28.16      256.00     4.00       0.012760   1.14       0.834360   1.14       8   
+write     28.19      256.00     4.00       0.011433   1.14       0.600145   1.14       9   
+
+Max Write: 30.99 MiB/sec (32.49 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write          30.99      10.43      23.07       6.91    1.58463 0 128 4 10 1 0 1 0 0 1 262144 4096 33554432 IOD 0
+
+Finished: Thu Feb  6 02:54:23 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:54:23 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -C -o f.x-4k.c-128.b-256k.0 -b 256k -F -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:54:23 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-128.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 128 (4 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 32 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      54.59      256.00     4.00       0.171246   0.477812   0.320611   0.586224   0   
+remove    -          -          -          -          -          -          0.026486   0   
+read      58.49      256.00     4.00       0.013394   0.547047   0.408530   0.547063   1   
+remove    -          -          -          -          -          -          0.027968   1   
+read      70.43      256.00     4.00       0.013188   0.454315   0.304802   0.454325   2   
+remove    -          -          -          -          -          -          0.022255   2   
+read      72.70      256.00     4.00       0.011210   0.440135   0.287473   0.440150   3   
+remove    -          -          -          -          -          -          0.023709   3   
+read      77.80      256.00     4.00       0.016354   0.411276   0.201056   0.411286   4   
+remove    -          -          -          -          -          -          0.023562   4   
+read      71.10      256.00     4.00       0.013963   0.450061   0.274342   0.450074   5   
+remove    -          -          -          -          -          -          0.022669   5   
+read      71.86      256.00     4.00       0.010575   0.445296   0.285186   0.445311   6   
+remove    -          -          -          -          -          -          0.027592   6   
+read      51.15      256.00     4.00       0.013234   0.625573   0.428928   0.625588   7   
+remove    -          -          -          -          -          -          0.029920   7   
+read      61.03      256.00     4.00       0.018122   0.524275   0.432429   0.524292   8   
+remove    -          -          -          -          -          -          0.025173   8   
+read      84.14      256.00     4.00       0.016752   0.380287   0.207362   0.380297   9   
+remove    -          -          -          -          -          -          0.025261   9   
+
+Max Read:  84.14 MiB/sec (88.23 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           84.14      51.15      67.33      10.04    0.48646 0 128 4 10 1 1 1 0 0 1 262144 4096 33554432 IOD 0
+
+Finished: Thu Feb  6 02:54:29 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:54:30 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-128.b-.1 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:54:30 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-128.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 128 (4 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 32 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     13.47      256.00     4.00       0.222809   1.08       1.70       2.38       0   
+write     7.20       256.00     4.00       0.021065   3.39       3.97       4.44       1   
+write     13.47      256.00     4.00       0.016959   1.31       1.89       2.38       2   
+write     14.06      256.00     4.00       0.017179   1.51       1.82       2.28       3   
+write     13.88      256.00     4.00       0.014203   1.29       1.98       2.31       4   
+write     13.80      256.00     4.00       0.016002   1.41       1.90       2.32       5   
+write     13.63      256.00     4.00       0.014793   1.14       1.95       2.35       6   
+write     13.43      256.00     4.00       0.016183   1.13       1.90       2.38       7   
+write     13.53      256.00     4.00       0.017986   1.77       1.91       2.37       8   
+write     13.91      256.00     4.00       0.021036   0.982615   1.79       2.30       9   
+
+Max Write: 14.06 MiB/sec (14.75 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write          14.06       7.20      13.04       1.96    2.54918 0 128 4 10 1 0 1 0 0 1 262144 4096 33554432 IOD 0
+
+Finished: Thu Feb  6 02:54:56 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:54:57 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -o f.x-4k.c-128.b-.1 -b 256k -F -k -e -i 1 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1 -O checkpointIdForReads=10
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:54:57 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-128.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 128 (4 per node)
+	repetitions        = 1
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 32 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      45.51      256.00     4.00       0.227514   0.517423   0.333497   0.703134   0   
+
+Max Read:  45.51 MiB/sec (47.72 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           45.51      45.51      45.51       0.00    0.70313 0 128 4 1 1 0 1 0 0 1 262144 4096 33554432 IOD 0
+
+Finished: Thu Feb  6 02:54:58 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:55:13 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-256.b-256k.0 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:55:13 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-256.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 256 (8 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 64 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     17.51      256.00     4.00       0.379984   3.36       2.47       3.66       0   
+write     27.16      256.00     4.00       0.051220   2.36       1.15       2.36       1   
+write     32.46      256.00     4.00       0.046173   1.97       0.627233   1.97       2   
+write     24.72      256.00     4.00       0.044605   2.59       1.52       2.59       3   
+write     21.89      256.00     4.00       0.046781   2.92       2.09       2.92       4   
+write     24.52      256.00     4.00       0.044701   2.61       1.52       2.61       5   
+write     22.51      256.00     4.00       0.048884   2.84       1.82       2.84       6   
+write     23.46      256.00     4.00       0.046281   2.73       1.62       2.73       7   
+write     27.91      256.00     4.00       0.045423   2.29       1.31       2.29       8   
+write     27.75      256.00     4.00       0.049340   2.31       1.36       2.31       9   
+
+Max Write: 32.46 MiB/sec (34.03 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write          32.46      17.51      24.99       3.89    2.62776 0 256 8 10 1 0 1 0 0 1 262144 4096 67108864 IOD 0
+
+Finished: Thu Feb  6 02:55:40 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:55:41 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -C -o f.x-4k.c-256.b-256k.0 -b 256k -F -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:55:41 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-256.b-256k.0
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 256 (8 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 64 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      53.34      256.00     4.00       0.308918   1.10       0.658839   1.20       0   
+remove    -          -          -          -          -          -          0.054722   0   
+read      82.30      256.00     4.00       0.026084   0.777606   0.437326   0.777616   1   
+remove    -          -          -          -          -          -          0.045362   1   
+read      84.90      256.00     4.00       0.025244   0.753785   0.325225   0.753795   2   
+remove    -          -          -          -          -          -          0.044029   2   
+read      73.18      256.00     4.00       0.025955   0.874509   0.602026   0.874519   3   
+remove    -          -          -          -          -          -          0.048488   3   
+read      76.23      256.00     4.00       0.023205   0.839539   0.458793   0.839551   4   
+remove    -          -          -          -          -          -          0.061343   4   
+read      75.05      256.00     4.00       0.026264   0.852800   0.510893   0.852810   5   
+remove    -          -          -          -          -          -          0.050509   5   
+read      77.75      256.00     4.00       0.029276   0.823124   0.438657   0.823138   6   
+remove    -          -          -          -          -          -          0.048810   6   
+read      83.23      256.00     4.00       0.024012   0.768913   0.381184   0.768923   7   
+remove    -          -          -          -          -          -          0.056140   7   
+read      81.21      256.00     4.00       0.026556   0.788103   0.400258   0.788116   8   
+remove    -          -          -          -          -          -          0.057205   8   
+read      83.10      256.00     4.00       0.022670   0.770109   0.430359   0.770121   9   
+remove    -          -          -          -          -          -          0.057035   9   
+
+Max Read:  84.90 MiB/sec (89.03 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           84.90      53.34      77.03       8.74    0.84485 0 256 8 10 1 1 1 0 0 1 262144 4096 67108864 IOD 0
+
+Finished: Thu Feb  6 02:55:50 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:55:51 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -w -z -E -o f.x-4k.c-256.b-.1 -b 256k -F -k -e -i10 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:55:51 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-256.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 256 (8 per node)
+	repetitions        = 10
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 64 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+write     23.13      256.00     4.00       0.454017   2.08       1.53       2.77       0   
+write     23.37      256.00     4.00       0.095389   1.96       1.77       2.74       1   
+write     15.66      256.00     4.00       0.018728   2.70       3.24       4.09       2   
+write     8.23       256.00     4.00       0.018485   7.25       6.72       7.77       3   
+write     21.78      256.00     4.00       0.023666   2.38       2.00       2.94       4   
+write     11.35      256.00     4.00       0.017750   4.41       4.58       5.64       5   
+write     19.18      256.00     4.00       0.015766   2.57       2.26       3.34       6   
+write     18.85      256.00     4.00       0.016237   2.45       2.01       3.39       7   
+write     14.02      256.00     4.00       0.019739   3.26       3.45       4.57       8   
+write     13.77      256.00     4.00       0.017136   3.82       3.53       4.65       9   
+
+Max Write: 23.37 MiB/sec (24.50 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write          23.37       8.23      16.93       4.89    4.18882 0 256 8 10 1 0 1 0 0 1 262144 4096 67108864 IOD 0
+
+Finished: Thu Feb  6 02:56:39 2014
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+ior WARNING: fsync() only available in POSIX.  Using value of 0.
+Began: Thu Feb  6 02:56:40 2014
+Command line used: /users/ivo/ior/src/ior -a IOD -r -z -o f.x-4k.c-256.b-.1 -b 256k -F -k -e -i 1 -m -t 4k -d 0.1 -O iodcontainer=iod1 -O checkpoint=1 -O checkpointIdForReads=10
+Machine: Linux issdm-1
+
+Test 0 started: Thu Feb  6 02:56:40 2014
+Summary:
+	api                = 
+	test filename      = f.x-4k.c-256.b-.1
+	access             = file-per-process
+	ordering in a file = random offsets
+	ordering inter file= no tasks offsets
+	clients            = 256 (8 per node)
+	repetitions        = 1
+	xfersize           = 4096 bytes
+	blocksize          = 262144 bytes
+	aggregate filesize = 64 MiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+read      62.25      256.00     4.00       0.327061   0.874701   0.435743   1.03       0   
+
+Max Read:  62.25 MiB/sec (65.27 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+read           62.25      62.25      62.25       0.00    1.02812 0 256 8 1 1 0 1 0 0 1 262144 4096 67108864 IOD 0
+
+Finished: Thu Feb  6 02:56:41 2014
