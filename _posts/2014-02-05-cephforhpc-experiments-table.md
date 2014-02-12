@@ -44,19 +44,22 @@ Lastly, when an entry is similar to other, the `<tag>` keyword is used
 to specify which tag is the entry equivalent to, followed by the 
 distinct assets that the entry differs on.
 
------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
    tag             internal                                      external
------------------  --------------------------------------------  ------------------------------------------
+-----------------  --------------------------------------------  -------------------------------------------
  cephforhpc-exp1   mode=4 described [here][l1] ; [code][s1] ;    [ior1] ; [iod_ceph1] ; [ceph1] ;
                    [analysis][a1] ; [spreadsheet][ss1]           built-in ceph snapshots as transactions
 
- cephforhpc-exp2   `exp1` ; [analysis][a2] ;                     `exp2` ; [gdoc2]
+ cephforhpc-exp2   `exp1` ; [analysis][a2] ;                     `exp2` ; [gdoc2][gdoc2] (tabs marked 'old')
                    two configurations for [script][c2]:
                    xfer=1m,blocksize=64m and
                    xfer=4k,blksize=256k ; spreadsheet
                    [1][ss2-1] and [2][ss2-2]
 
------------------------------------------------------------------------------------------------------------
+ cephforhpc-exp3   [analysis][a3] ; [script][s3] ;               [ceph1] ; using `rados bench` utility ;
+                   the raw spreadsheet is in [ss3]               in [gdoc2], there's a tab for this
+
+------------------------------------------------------------------------------------------------------------
 
 [l1]: {% post_url 2014-01-30-cephforhpc-the-day-the-cephforhpc-project-becamed-my-thesis-topic %}
 [ss1]: {{ site.url }}/images/scripts/2014-02-04-mode4-results.csv
@@ -70,3 +73,6 @@ distinct assets that the entry differs on.
 [ss2-1]: {{ site.url }}/images/spreadsheets/2014-02-05-cephforhpc-exp2_1m.csv
 [ss2-2]: {{ site.url }}/images/spreadsheets/2014-02-05-cephforhpc-exp2_4k.csv
 [gdoc2]: https://docs.google.com/spreadsheet/ccc?key=0AnohAxx-m2sQdE1zZFZLNGJxMXB6R1UwQldzaEk5Mmc&usp=sharing
+[a3]: {% post_url 2014-02-08-cephforhpc-rados-baseline %}
+[s3]: {{ site.url }}/images/scripts/rados_baseline.sh
+[ss3]: {{ site.url }}/images/spreadsheets/2014-02-08-rados-baseline.csv
