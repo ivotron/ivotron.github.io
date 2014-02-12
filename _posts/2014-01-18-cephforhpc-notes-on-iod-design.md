@@ -29,19 +29,16 @@ the IOD interface on top of RADOS:
     object it wants to read and then use the OID to 
     open_write/open_read.
 
- 3. name is the main ID for containers, which is confusing since for 
-    objects the numerical identifier is the ID.
-
- 3. API doesn't specify failure conditions in some places:
-
-      * what happens when `iod_obj_create` is invoked over an existing 
-        object. Should this fail?
-
- 4. container "open" will implicitly create a container whereas an 
+ 3. container "open" will implicitly create a container whereas an 
     object has to be created first. This is contradictory from the 
     user's perspective.
 
-# questions
+ 4. name is the main ID for containers, which is confusing since for 
+    objects the numerical identifier is an ID.
 
- 1. what's the rationale behind I/O fragments?
+ 5. API doesn't specify failure conditions in some places:
 
+      * what happens when `iod_obj_create` is invoked over an existing 
+        object. Should this fail?
+      * two concurrent writes to the same offset of the same object 
+        inside the same transaction?

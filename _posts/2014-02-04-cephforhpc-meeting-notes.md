@@ -38,6 +38,7 @@ tags:
     correct, this would be supported in something like IOD. The 
     problem arises when two ranks want to write to the same 
     object/block/shard/ within the same transaction.
+    **update**: he mentioned he didn't know, so the above is correct.
 
 [p]: http://www.cse.psu.edu/~seokim/tutorial/MADbench2
 [n]: {% post_url 2014-01-30-cephforhpc-the-day-the-cephforhpc-project-becamed-my-thesis-topic %}

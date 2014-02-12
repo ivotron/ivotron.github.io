@@ -121,7 +121,8 @@ tags:
     is invoked  `blocksize / transfersize` times. Thus, `blocksize` 
     must be divisible by `xfersize`.
 
- 2. does the block size makes a difference in our results?
+ 2. given the same transfer size, does the block size makes a 
+    difference in our results?
 
     **a**: It shouldn't.
 
