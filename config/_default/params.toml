@@ -81,7 +81,7 @@ edit_page = {repo_url = "https://github.com/gcushen/hugo-academic", content_dir 
 ############################
 
 # Enter contact details (optional). To hide a field, clear it to "".
-email = "ivo@cs.ucsc.edu"
+email = "ivotron@ucsc.edu"
 phone = "650 898 7167"
 
 # Address
