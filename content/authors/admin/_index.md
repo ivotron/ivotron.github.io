@@ -14,9 +14,9 @@ role: ''
 
 # Organizations/Affiliations
 organizations:
-- name: Research Scientist (UC Santa Cruz)
+- name: Research Scientist (UCSC)
   url: "https://ucsc.edu"
-- name: Adjunct Professor (Universidad de Sonora)
+- name: Adjunct Professor (UniSon)
   url: "https://unison.mx"
 
 # Short bio (displayed in user profile at end of posts)
