@@ -10,12 +10,14 @@ authors:
 superuser: true
 
 # Role/position
-role: Research Scientist
+role: ''
 
 # Organizations/Affiliations
 organizations:
-- name: UC Santa Cruz
+- name: Research Scientist (UC Santa Cruz)
   url: "https://ucsc.edu"
+- name: Adjunct Professor (Universidad de Sonora)
+  url: "https://unison.mx"
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include distributed storage and management systems, as well as reproducibility in systems research.
@@ -76,4 +78,4 @@ user_groups:
 - Visitors
 ---
 
-Ivo Jimenez is a Research Scientist at UC Santa Cruz and Incubator Fellow at the UC Santa Cruz Center for Research on Open Source Software (CROSS). He is interested in large-scale distributed data management systems. His 2019 PhD dissertation focused on the practical aspects in the reproducible evaluation of systems research, work for which he was awarded the 2018 Better Scientific Software Fellowship. Ivo is originally from Mexico, where he got his B.S. in Computer Science from Universidad de Sonora. From 2006 to 2010 he worked as a research associate in the Database Research Lab at HP Labs.
+Research Scientist at [UC Santa Cruz](https://ucsc.edu), Incubator Fellow at the [UC Santa Cruz Center for Research on Open Source Software (CROSS)](https://cross.ucsc.edu); Adjunct Professor at [University of Sonora](https://unison.mx). Interested in large-scale distributed data management systems, applied aspects of data science, and reproducibility. My 2019 PhD dissertation focused on the practical aspects in the reproducible evaluation of systems research, work for which he was awarded the 2018 Better Scientific Software Fellowship. I am currently working on [Popper](https://github.com/getpopper/popper), as part of the CROSS Incubator Program.
