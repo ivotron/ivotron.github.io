@@ -15,9 +15,9 @@ role: ''
 # Organizations/Affiliations
 organizations:
 - name: Research Scientist (UCSC)
-  url: "https://ucsc.edu"
+  url: "https://www.ucsc.edu"
 - name: Adjunct Professor (UniSon)
-  url: "https://unison.mx"
+  url: "https://www.unison.mx"
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include distributed storage and management systems, as well as reproducibility in systems research.
