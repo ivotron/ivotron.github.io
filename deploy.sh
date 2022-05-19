@@ -8,6 +8,8 @@ if [ "$(git status -s)" ]; then
   exit 1;
 fi
 
+git submodule update --init --recursive
+
 GIT_SHA=$(git rev-parse --short HEAD)
 
 echo "Deleting old publication"
