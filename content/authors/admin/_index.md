@@ -76,4 +76,4 @@ user_groups:
 - Visitors
 ---
 
-Software Engineer at [Redpanda Data, Inc.](https://redpanda.com). My work revolves around the reproducible evaluation of distributed storage, data management and real-time analytics systems. My [2019 PhD dissertation](https://escholarship.org/content/qt8206n6nz/qt8206n6nz_noSplash_aa992709bea701c3a9d687cb2d229e50.pdf) focused on the practical aspects in the reproducible evaluation of systems research, work for which I was awarded the [2018 Better Scientific Software Fellowship](https://bssw.io/items/bssw-fellows-2018-projects-and-perspectives/).
+I am a Software Engineer at [Redpanda Data](https://redpanda.com). My work revolves around the reproducible evaluation of distributed storage, data management and real-time analytics systems. My [2019 PhD dissertation](https://escholarship.org/content/qt8206n6nz/qt8206n6nz_noSplash_aa992709bea701c3a9d687cb2d229e50.pdf) focused on applying the DevOps methodology on R&D and academic settings.
