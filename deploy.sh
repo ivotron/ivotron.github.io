@@ -24,8 +24,8 @@ rm -rf public/*
 
 echo "Generating site"
 docker run --rm -it \
-  -v ${PWD}:/src \
-  -v ${PWD}/public:/target \
+  -v ${PWD}:/src:Z \
+  -v ${PWD}/public:/target:Z \
   klakegg/hugo:0.67.0-ext
 
 echo "Updating master branch"
