@@ -14,10 +14,8 @@ role: ''
 
 # Organizations/Affiliations
 organizations:
-- name: Research Scientist (UCSC)
-  url: "https://www.ucsc.edu"
-- name: Adjunct Professor (UniSon)
-  url: "https://www.unison.mx"
+- name: Redpanda Data, Inc.
+  url: "https://redpanda.com"
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include distributed storage and management systems, as well as reproducibility in systems research.
@@ -46,7 +44,7 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: 'mailto:ivotron@ucsc.edu'
+  link: 'mailto:ivotron@pm.me'
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/ivotron
@@ -78,4 +76,4 @@ user_groups:
 - Visitors
 ---
 
-Research Scientist at [UC Santa Cruz](https://ucsc.edu), Incubator Fellow at the [UC Santa Cruz Center for Research on Open Source Software (CROSS)](https://cross.ucsc.edu); Adjunct Professor at [University of Sonora](https://unison.mx). Interested in large-scale distributed data management systems, applied aspects of data science, and reproducibility. My [2019 PhD dissertation](https://escholarship.org/content/qt8206n6nz/qt8206n6nz_noSplash_aa992709bea701c3a9d687cb2d229e50.pdf) focused on the practical aspects in the reproducible evaluation of systems research, work for which I was awarded the [2018 Better Scientific Software Fellowship](https://bssw.io/items/bssw-fellows-2018-projects-and-perspectives/). I am currently working on [Popper](https://github.com/getpopper/popper), as part of the CROSS Incubator Program.
+Software Engineer at [Redpanda Data, Inc.](https://redpanda.com). My work revolves around the reproducible evaluation of distributed storage, data management and real-time analytics systems. My [2019 PhD dissertation](https://escholarship.org/content/qt8206n6nz/qt8206n6nz_noSplash_aa992709bea701c3a9d687cb2d229e50.pdf) focused on the practical aspects in the reproducible evaluation of systems research, work for which I was awarded the [2018 Better Scientific Software Fellowship](https://bssw.io/items/bssw-fellows-2018-projects-and-perspectives/).
