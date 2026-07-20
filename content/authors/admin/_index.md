@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: ''
+role: 'Staff Software Engineer'
 
 # Organizations/Affiliations
 organizations:
@@ -76,4 +76,4 @@ user_groups:
 - Visitors
 ---
 
-I am a Software Engineer at [Redpanda Data](https://redpanda.com). My work revolves around the reproducible evaluation of distributed storage, data management and real-time analytics systems. My [2019 PhD dissertation](https://escholarship.org/content/qt8206n6nz/qt8206n6nz_noSplash_aa992709bea701c3a9d687cb2d229e50.pdf) focused on applying the DevOps methodology on R&D and academic settings.
+I am a Staff Software Engineer at [Redpanda Data](https://redpanda.com), where I work on developer productivity and platform engineering, applying an R&D background in distributed systems to systems software and software delivery.
