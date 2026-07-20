@@ -21,9 +21,10 @@ organizations:
 bio: My research interests include distributed storage and management systems, as well as reproducibility in systems research.
 
 interests:
+- Developer Productivity
+- Platform Engineering
 - Distributed Systems
-- Databases
-- Reproducibility
+- AI-Assisted Engineering
 
 education:
   courses:
